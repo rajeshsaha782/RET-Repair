@@ -12,17 +12,12 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
-
 <style>
 td {text-align:center}
-
-tr{cursor:pointer}
 </style>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -82,7 +77,7 @@ tr{cursor:pointer}
               <a href="forgot-password.html">Forgot Password Page</a>
             </li>
             <li>
-              <a href="request_server_details.html">Blank Page</a>
+              <a href="blank.html">Blank Page</a>
             </li>
           </ul>
         </li>
@@ -239,52 +234,67 @@ tr{cursor:pointer}
       </ol>
       <div class="row">
         <div class="col-12">
-          <h1>Choose Service Provider</h1>
-		  <br/>
-		  <button type="submit" class="btn btn-primary" onclick="window.location='request_server_filter_both.html';">Filter by Rating</button>
-		  <button type="submit" class="btn btn-danger float-right" onclick="window.location='request_server_filter_none.html';">Filter by Nearest <span aria-hidden="true">&times;</span></button>
-		  <p></p>
-		<table width="100%" class="table table-hover " id="dataTable">
-			<thead class="table-primary">
-			<tr>
-				<td>Picture</td>
-				<td>Name</td>
-				<td>Address</td>
-				<td>Phone no</td>
-				<td>Rating</td>
-			</tr>
-			</thead>
-			<tbody class="table-active">
-			<tr onclick="window.location='request_server_details.html';">
-				<td><img src="images/robi.jpg" style="width:50px" class="rounded-circle"></td>
-				<td>Robi Ullah</td>
-				<td>Kuril Bisshawroad, Bashundhara,Dhaka</td>
-				<td>01911111111</td>
-				<td>1</td>
-			</tr>
-			<tr onclick="window.location='request_server_details.html';">
-				<td><img src="images/user_pic.png" style="width:50px" class="rounded-circle"></td>
-				<td>John</td>
-				<td>Uttara</td>
-				<td>01911111111</td>
-				<td>5</td>
-			</tr>
-			<tr onclick="window.location='request_server_details.html';">
-				<td><img src="images/user_pic.png" style="width:50px" class="rounded-circle"></td>
-				<td>John</td>
-				<td>Uttara</td>
-				<td>01911111111</td>
-				<td>5</td>
-			</tr>
-			<tr onclick="window.location='request_server_details.html';">
-				<td><img src="images/user_pic.png" style="width:50px" class="rounded-circle"></td>
-				<td>John</td>
-				<td>Uttara</td>
-				<td>01911111111</td>
-				<td>5</td>
-			</tr>
-			</tbody>
+		<table width="70%" class="center">
+				<tr>
+					<td colspan="2">
+						  <img src="images/robi.jpg" style="width:12%" class="rounded-circle">
+						  <h2>Robi Ullah</h2>
+						  <p>Kuril Bisshawroad, Bashundhara,Dhaka</p>
+						  <br/>
+						  <br/>
+					</td>
+				</tr>
+				<tr>
+					<td width="50%">
+						<div class="card bg-secondary text-white">
+						<b>Rating</b>
+						<p>5</p>
+						</div>
+						<br/>
+					</td>
+					<td >
+						<div class="card bg-secondary text-white">
+						<b>Total Delivery</b>
+						<p>21321</p>
+						</div>
+						<br/>
+					</td>
+				</tr>
+				<tr>
+					<td width="50%"><button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#messageModal">Message</button></td>
+					<td><input type="button" class="btn btn-outline-primary" value="Show Phone No." onclick="change()" id="myButton1"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<br/>
+					<br/>
+						<button type="submit" class="btn btn-primary" onclick="window.location='request_server_filter_rating.html';">Confirm</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<br/>
+						<b>Reviews</b><br/><br/>
+						<table class="table table-primary table-striped">
+							<tr >
+								<td width="10%"><img src="images/user_pic.png" style="width:100%" class="rounded-circle"> <b>John</b></td>
+								<td class="text-justify">Good Service</td>
+							</tr>
+							<tr >
+								<td width="10%"><img src="images/user_pic.png" style="width:100%" class="rounded-circle"> <b>John</b></td>
+								<td class="text-justify">Good Service</td>
+							</tr>
+							<tr >
+								<td width="10%"><img src="images/user_pic.png" style="width:100%" class="rounded-circle"> <b>John</b></td>
+								<td class="text-justify">Good Service</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			
 		</table>
+			
+		  
 		  
         </div>
       </div>
@@ -320,19 +330,51 @@ tr{cursor:pointer}
         </div>
       </div>
     </div>
+	<!--Message Modal-->
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+			<table width="100%">
+				<tr>
+					<td>To:<br/><br/><br/></td>
+					<td ><button type="submit" class="btn float-left" style="cursor:default;">Robi Ullah</button><br/><br/><br/></td>
+				</tr>
+				<tr>
+					<td>Message:</td>
+					<td><textarea id="message" name="message" style="width:100%;height:100px" placeholder="Write something.." ></textarea></td>
+				</tr>
+			</table>
+				
+		  </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="" data-dismiss="modal">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js/sb-admin-datatables.min.js"></script>
   </div>
 </body>
+
+<script>
+function change()
+{
+    document.getElementById("myButton1").value="01911111111"; 
+}
+</script>
 
 </html>
