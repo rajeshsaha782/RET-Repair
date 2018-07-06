@@ -17,8 +17,12 @@
 </head>
 
 <style>
+td {text-align:center}
 
-tr{cursor:pointer}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
 </style>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -164,179 +168,53 @@ tr{cursor:pointer}
       </ol>
       <div class="row">
         <div class="col-12">
-         <div class="container">
-			<div class="row">
-
-				<section class="content">
-					<h1>Requests</h1>
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<div class="pull-right">
-									<!--<div class="btn-group">
-										<button type="button" class="btn btn-success btn-filter" data-target="pagado">Pagado</button>
-										<button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Pendiente</button>
-										<button type="button" class="btn btn-danger btn-filter" data-target="cancelado">Cancelado</button>
-										<button type="button" class="btn btn-default btn-filter" data-target="all">Todos</button>
-									</div>-->
-								</div>
-								<div class="table-container" >
-									<table class="table table-filter table-primary table-striped">
-										<tbody>
-											<tr onclick="sevice_provider_user_request_details.html">
-												<td>
-													<div class="ckbox">
-														<input type="checkbox" id="checkbox1">
-														<label for="checkbox1"></label>
-													</div>
-												</td>
-												<td width="65%">
-													<div class="media">
-														<a href="#" class="pull-left">
-															<img src="images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td >
-													<button type="button"  style="cursor:default;"  class="btn btn-warning text-white"><b>Pending</b></button>
-												</td>
-												<td width="20%">
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr onclick="">
-												<td>
-													<div class="ckbox">
-														<input type="checkbox" id="checkbox1">
-														<label for="checkbox1"></label>
-													</div>
-												</td>
-												<td>
-													<div class="media">
-														<a href="#" class="pull-left">
-															<img src="images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-primary btn-filter text-white" ><b>Confirmed</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr onclick="">
-												<td>
-													<div class="ckbox">
-														<input type="checkbox" id="checkbox1">
-														<label for="checkbox1"></label>
-													</div>
-												</td>
-												<td>
-													<div class="media">
-														<a href="#" class="pull-left">
-															<img src="images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-danger btn-filter text-white" ><b>Canceled</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr onclick="">
-												<td>
-													<div class="ckbox">
-														<input type="checkbox" id="checkbox1">
-														<label for="checkbox1"></label>
-													</div>
-												</td>
-												<td>
-													<div class="media">
-														<a href="#" class="pull-left">
-															<img src="images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-success btn-filter text-white" data-target="pagado"><b>Completed</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr onclick="">
-												<td>
-													<div class="ckbox">
-														<input type="checkbox" id="checkbox1">
-														<label for="checkbox1"></label>
-													</div>
-												</td>
-												<td>
-													<div class="media">
-														<a href="#" class="pull-left">
-															<img src="images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-warning btn-filter text-white" data-target="pagado"><b>Pending</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
+		<table width="70%" class="center" style="margin: 0px auto;">
+				<tr>
+					<td colspan="2">
+						  <img src="images/robi.jpg" style="width:12%" class="rounded-circle">
+						  <h2>Robi Ullah</h2>
+						  <p>Kuril Bisshawroad, Bashundhara,Dhaka</p>
+						  <br/>
+						  <br/>
+					</td>
+				</tr>
+				<tr>
+					<td width="50%"><button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#messageModal">Message</button></td>
+					<td><input type="button" class="btn btn-outline-primary" value="Show Phone No." onclick="change()" id="myButton1"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<br/>
+						<div class="card bg-light">
+						  <div class="card-body text-center">
+							<p class="card-text">Service Type: <img src="images/tv.png" style="width:5%" alt="Avatar" class="image"> <b>Television Servicing</b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="Pending" onclick="change2()" id="ConfirmButton"/></p>
+						  </div>
 						</div>
-						
-					</div>
-				</section>
+						<br/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<br/>
+						<b>Problem Description</b><br/><br/>
+						<i>Television keeps turning of automatically</i>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<br/>
+					<br/>
+						<input type="button" class="btn btn-primary" data-toggle="modal" data-target="" value="Confirm" onclick="change2()" id="ConfirmButton1"/>
+						<button type="submit" class="btn btn-danger" id="cancelButton" onclick="change3()" data-toggle="modal" data-target="">Cancel</button>
+					</td>
+				</tr>
 				
-		</div>
+				
+			
+		</table>
+			
+		  
+		  
         </div>
       </div>
     </div>
@@ -371,6 +249,100 @@ tr{cursor:pointer}
         </div>
       </div>
     </div>
+	<!--Message Modal-->
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send Message</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+			<table width="100%">
+				<tr>
+					<td>To:<br/><br/><br/></td>
+					<td ><button type="submit" class="btn float-left" style="cursor:default;">Robi Ullah</button><br/><br/><br/></td>
+				</tr>
+				<tr>
+					<td>Message:</td>
+					<td><textarea id="message" name="message" style="width:100%;height:100px" placeholder="Write something.." ></textarea></td>
+				</tr>
+			</table>
+				
+		  </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="" data-dismiss="modal" data-toggle="modal" data-target="#successfulModal">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	<!--Bill Modal-->
+	<div class="modal fade" id="billModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bill</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+			<table width="100%">
+				<tr>
+					<td>To:<br/><br/><br/></td>
+					<td ><button type="submit" class="btn float-left" style="cursor:default;">Robi Ullah</button><br/><br/><br/></td>
+				</tr>
+				<tr>
+					<td>Components:</td>
+					<td><textarea id="billComponents" class="rounded" name="billComponents" style="width:100%;height:100px" placeholder="Write something.." ></textarea></td>
+				</tr>
+				<tr>
+					<td>Total Price:</td>
+					<td><input class="float-left rounded" id="totalprice" name="totalprice" /></td>
+				</tr>
+			</table>
+				
+		  </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="" data-dismiss="modal" data-toggle="modal" data-target="#successfulModal">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	<!-- Successful Modal-->
+    <div class="modal fade" id="successfulModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send Successful</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body" style="margin: 0px auto;width:50%"><img src="images/ok.png" style="width:100%" class="rounded-circle"> </div>
+          
+        </div>
+      </div>
+    </div>
+	<!-- Confirmed Modal-->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Request Confirmed</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body" style="margin: 0px auto;width:50%"><img src="images/ok.png" style="width:100%" class="rounded-circle"> </div>
+          
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -380,6 +352,48 @@ tr{cursor:pointer}
     <script src="js/sb-admin.min.js"></script>
   </div>
 </body>
+
+<script>
+function change()
+{
+    document.getElementById("myButton1").value="01911111111"; 
+}
+
+function change2()
+{
+    if(document.getElementById("ConfirmButton").value=="Pending")
+	{
+		document.getElementById("ConfirmButton").value="Confirmed"; 
+		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+		document.getElementById("ConfirmButton1").value="Billing Proccess";
+		
+	}
+	else
+	{
+		document.getElementById("ConfirmButton1").setAttribute("data-target", "#billModal");
+	}
+}
+
+function change3()
+{
+    if(document.getElementById("ConfirmButton").value!="Canceled")
+	{
+		document.getElementById("ConfirmButton").value="Canceled"; 
+		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-danger');cancelButton
+		$("#ConfirmButton1").addClass('hidden');
+		$("#cancelButton").addClass('hidden');
+	}
+}
+
+$("#confirmModal").on("hidden.bs.modal", function () {
+	setTimeout(func, 0);
+	function func() 
+	{
+		window.location = 'index.html';
+	}
+});
+</script>
+
 <script>
 if (sessionStorage.getItem("navbar")== "true") 
 {
@@ -389,4 +403,5 @@ if (sessionStorage.getItem("navbar")== "true")
 	  
 }
 </script>
+
 </html>
