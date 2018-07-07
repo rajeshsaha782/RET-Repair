@@ -213,6 +213,7 @@
 						<li><a href="#pricing">PRICING</a></li>-->
 						<li><a href="#contact">CONTACT</a></li>
 						<li><a href="#signup">Sign up</a></li>
+						<li ><a data-toggle="modal" data-target="#loginmodal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 					</ul>
 				</div>
 			</div>
@@ -328,16 +329,12 @@
 	
 	<!-- Add Google Maps -->
 	<div id="signup" style="height:100%;width:100%;">
-		
-		<iframe name="contentFrame" frameborder="0" width="100%" height="530" src="register.html"></iframe>
+		<br/>
+		<br/>
+		<iframe name="contentFrame" frameborder="0" width="100%" height="500" src="register.html"></iframe>
 
 	</div>
-	
-	<!--
-		To use this code on your website, get a free API key from Google.
-		Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
-	-->
-	
+
 	<footer class="container-fluid text-center" ">
 		<a href="#myPage" title="To Top">
 			<span class="glyphicon glyphicon-chevron-up"></span>
@@ -384,3 +381,39 @@
 	
 </body>
 </html>
+
+
+<div class="modal fade" id="loginmodal" role="dialog" style="padding-top:80px;">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				
+				<div class="modal-body" >
+					<form class="form-signin">
+		              <div class="form-label-group">
+		              	<label for="inputEmail">Email address</label>
+		                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		                
+		              </div>
+
+		              <div class="form-label-group">
+		              	<label for="inputPassword">Password</label>
+		                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		                
+		              </div>
+		              <br/>
+		              <a class="btn btn-primary btn-block" href="index.html">Login</a>
+		              <!-- <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" >Sign in</button> -->
+		              <hr class="my-4">
+		              <div class="text-center">
+		                <!-- <a class="d-block small mt-3" href="register.html">Register an Account</a><br/> -->
+		                <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+		              </div>
+		            </form>
+					
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>	
