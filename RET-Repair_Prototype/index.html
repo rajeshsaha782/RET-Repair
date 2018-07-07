@@ -27,6 +27,34 @@
       width: 100%;
       height: 50%;
   }
+
+  * {box-sizing: border-box;}
+
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
   </style>
 
 
@@ -46,7 +74,7 @@
           </a>
         </li> -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link"  href="request_service.html">
+          <a class="nav-link"  href="index.html">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Service</span>
           </a>
@@ -55,6 +83,24 @@
           <a class="nav-link" href="Dashboard_user.html">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="Dashboard_user.html">
+            <i class="fa fa-fw fa-american-sign-language-interpreting"></i>
+            <span class="nav-link-text">Service Received</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="Dashboard_user.html">
+            <i class="fa fa-fw fa-edit"></i>
+            <span class="nav-link-text">Edit profile</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="Dashboard_user.html">
+            <i class="fa fa-fw fa-key"></i>
+            <span class="nav-link-text">Change Password</span>
           </a>
         </li>
         
@@ -174,8 +220,108 @@
 
     
      
-    <iframe name="contentFrame" frameborder="0" width="100%" height="500" src="request_service.html"></iframe>
-
+    <!-- <iframe name="contentFrame" frameborder="0" width="100%" height="500" src="request_service.html"></iframe> -->
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Blank Page</li>
+      </ol>
+      <div class="row">
+        <div class="col-12">
+          <h1 style="text-align: center;">Request For a Service</h1>
+          <h4>Choose your desired type of service</h4>
+      <!--<div class="dropdown">
+      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+        Choose Prefered Service
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Television Servicing</a>
+        <a class="dropdown-item" href="#">Refrigerator Servicing</a>
+        <a class="dropdown-item" href="#">Air Conditioner Servicing</a>
+      </div>
+      </div>-->
+      
+      <!--<div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+          <i class="fa fa-fw fa-comments"></i>
+          </div>
+          <div class="mr-5">26 New Messages!</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">View Details</span>
+          <span class="float-right">
+          <i class="fa fa-angle-right"></i>
+          </span>
+        </a>
+        </div>
+      </div>-->
+      
+      <div class="card-columns">
+        <br/>
+        <br/>
+        <a href="request_details.html">
+        <div class="container">
+          <img src="images/tv.png" style="height:30%" alt="Avatar" class="image">
+          <div class="overlay">Television Servicing</div>
+        </div>
+        </a>
+        <br/>
+        <br/>
+        <a href="request_details.html">
+        <div class="container">
+          <img src="images/ac.png" style="height:30%" alt="Avatar" class="image">
+          <div class="overlay">AC Servicing</div>
+        </div>
+        </a>
+        <br/>
+        <br/>
+        <a href="request_details.html">
+        <div class="container">
+          <img src="images/refrigerator.png" style="height:30%" alt="Avatar" class="image">
+          <div class="overlay">Refrigerator Servicing</div>
+        </div>
+        </a>
+        <br/>
+        <br/>
+        <br/>
+        <a href="request_details.html">
+        <div class="container">
+          <img src="images/mobile.png" style="width:60%" alt="Avatar" class="image">
+          <div class="overlay">Phone Servicing</div>
+        </div>
+        </a>
+        <br/>
+        <br/>
+        <a href="request_details.html">
+        <div class="container">
+          <img src="images/desktop.png" style="height:50%" alt="Avatar" class="image">
+          <div class="overlay">Computer Servicing</div>
+        </div>
+        </a>
+        <br/>
+        <br/>
+        <a href="request_details.html">
+        <!--<div class="card" style="background-color:#DCDCDC">
+          <div class="card-body text-center">
+          <img src="images/tv.png" style="width:30%" class="rounded" alt="Cinque Terre">
+          <p class="card-text">Television Servicing</p>
+          </div>
+        </div>-->
+        <div class="container">
+          <img src="images/others.png" style="height:30%" alt="Avatar" class="image">
+          <div class="overlay">Others</div>
+        </div>
+        </a>
+      </div>
+      
+        </div>
+      </div>
+    </div>
 
 
 
@@ -192,7 +338,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2018</small>
+          <small>Copyright © RET Repair 2018</small>
         </div>
       </div>
     </footer>

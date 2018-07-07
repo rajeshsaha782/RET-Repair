@@ -12,9 +12,12 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 </head>
+
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
@@ -25,7 +28,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link"  href="index.html">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Service</span>
@@ -63,13 +66,6 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -102,7 +98,7 @@
               <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="messages_filter_none.html">View all messages</a>
+            <a class="dropdown-item small" href="#">View all messages</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -172,49 +168,40 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
+          <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item active">Edit Profile</li>
       </ol>
-      <div class="row">
-        <div class="col-12">
-          <h1>Service Details</h1>
-		  <br/>
-		  <div class="card bg-light">
-			  <div class="card-body text-center">
-				<p class="card-text">Selected Service Type: <img src="images/tv.png" style="width:5%" alt="Avatar" class="image"> <b>Television Servicing</b></p>
-			  </div>
-			</div>
-		  <br/>
-		  <br/>
-		  
-			<table>
-				<tr>
-				<td width="550px">
-				<label for="Description">Details About your desired service</label>
-			  <div class="col-75">
-				<textarea id="Description" name="Description" placeholder="Write something.." style="height:150px;width:450px"></textarea>
-			  </div>
-			  </td>
-			  <td>
-			  <label for="Address">Address</label>
-			  <div class="col-75">
-				<textarea id="Address" name="Address" style="height:150px;width:450px">(Address given in account)</textarea>
-			  </div>
-			  </td>
-			  </tr>
-			  </table>
-			  <br/>
-			  <br/>
-				<div class="form-row text-center">
-					<div class="col-12">
-						<button type="submit" class="btn btn-primary" onclick="window.location='request_server_filter_none.html';">Confirm Request</button>
-					</div>
-				 </div>
-			  
+     
+     <div class="row">
+        <div class="col-8">
+          <table class="table table-striped" style="width: 80%">
+            <tr>
+              <td width="40%">Name</td>
+              <td class="text-justify"><input type="text" name="name" value="Rajesh saha"/></td>
+            </tr>
+            <tr >
+              <td width="40%">Email</td>
+              <td class="text-justify">r@gmail.com</td>
+            </tr>
+            <tr >
+              <td width="40%">Address</td>
+              <td>
+                <textarea id="Address" name="Address" style="height:100px;width:300px">Address given in account</textarea>
+              </td>
+            </tr>
+            <tr >
+              <td width="40%">Phone number</td>
+              <td class="text-justify"><input type="text" name="Phone" value="016xxxxxxx"/></td>
+            </tr>
+          </table>
         </div>
-      </div>
-    </div>
+        <div class="col-4"  style="padding-right: 100px">
+           <img src="images/user_pic.png" style="width:100%">
+        </div>
+     </div>
+
+    
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -251,10 +238,18 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/sb-admin-charts.min.js"></script>
   </div>
 </body>
+
 <script>
 if (sessionStorage.getItem("navbar")== "true") 
 {
@@ -264,4 +259,5 @@ if (sessionStorage.getItem("navbar")== "true")
 	  
 }
 </script>
+
 </html>
