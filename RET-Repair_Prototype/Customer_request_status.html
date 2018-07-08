@@ -202,7 +202,7 @@ td {text-align:center}
 					<br/>
 						<div class="card bg-light">
 						  <div class="card-body text-center">
-							<p class="card-text">Service Type: <img src="images/tv.png" style="width:5%" alt="Avatar" class="image"> <b>Television Servicing</b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="Pending" onclick="change2()" id="ConfirmButton"/></p>
+							<p class="card-text">Service Type: <img src="images/tv.png" style="width:5%" alt="Avatar" class="image"> <b>Television Servicing</b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="Pending" id="ConfirmButton"/></p>
 						  </div>
 						</div>
 						<br/>
@@ -215,7 +215,7 @@ td {text-align:center}
 						<i>Television keeps turning of automatically</i>
 					</td>
 				</tr>
-				<tr>
+				<tr class="p">
 					<td colspan="2" >
 					<br/>
 						<b>Payment Description</b><br/><br/>
@@ -229,7 +229,14 @@ td {text-align:center}
 					<td colspan="2">
 					<br/>
 					<br/>
-						<input type="button" class="btn btn-primary" data-toggle="modal" data-target="" value="Confirm" onclick="change2()" id="ConfirmButton1"/>
+						<input type="button" class="btn btn-primary" data-toggle="modal" data-target="" value="Accept" onclick="change2()" id="ConfirmButton1"/>
+						<script>
+						if(document.getElementById("ConfirmButton").value=="Pending")
+						{
+							$("#ConfirmButton1").addClass('hidden');
+							
+						}
+						</script>
 						<button type="submit" class="btn btn-danger" id="cancelButton" onclick="change3()" data-toggle="modal" data-target="">Cancel</button>
 					</td>
 				</tr>
@@ -289,6 +296,66 @@ td {text-align:center}
     <script src="js/sb-admin-charts.min.js"></script>
   </div>
 </body>
+
+<script>
+if(document.getElementById("ConfirmButton").value=="Pending")
+{
+	$("#ConfirmButton1").addClass('hidden');
+	$("tr.p").hide();
+	
+	//when expert confirms request
+	setTimeout(func, 5000);
+	function func() {
+		document.getElementById("ConfirmButton").value="Confirmed";
+		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+		setTimeout(func2, 5000);
+	}
+	function func2(){
+		$("#ConfirmButton1").removeClass('hidden');
+		$("tr.p").show();
+	}
+	
+	
+	
+}
+</script>
+
+<script>
+function change()
+{
+    document.getElementById("myButton1").value="01911111111"; 
+}
+
+function change2()
+{
+    if(document.getElementById("ConfirmButton").value=="Confirmed")
+	{
+		document.getElementById("ConfirmButton").value="On Going"; 
+		$('#ConfirmButton').toggleClass('btn-outline-primary btn-outline-secondary');
+		$("#ConfirmButton1").addClass('hidden');
+		
+	}
+}
+
+function change3()
+{
+    if(document.getElementById("ConfirmButton").value!="Canceled")
+	{
+		document.getElementById("ConfirmButton").value="Canceled"; 
+		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-danger');cancelButton
+		$("#ConfirmButton1").addClass('hidden');
+		$("#cancelButton").addClass('hidden');
+	}
+}
+
+$("#confirmModal").on("hidden.bs.modal", function () {
+	setTimeout(func, 0);
+	function func() 
+	{
+		window.location = 'index.html';
+	}
+});
+</script>
 
 <script>
 if (sessionStorage.getItem("navbar")== "true") 
