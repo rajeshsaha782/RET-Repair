@@ -19,7 +19,6 @@
 </head>
 
 
-
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -92,63 +91,58 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="../#">Dashboard</a>
+          <a href="index.html">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Add Member</li>
+        <li class="breadcrumb-item active">Blank Page</li>
       </ol>
-      <!-- Icon Cards-->
-    <div class="row" style="background-color: #A8A8A8">
-      <div class="col-8">
-        <h3>Add Member</h3>
-      </div>
-     </div>
-     <div class="row">
-        <div class="col-8">
-          <table class="table table-striped" style="width: 80%">
-            <tr>
-              <td width="40%">Name</td>
-              <td class="text-justify"><input type="text" name="name" /></td>
-            </tr>
-            <tr >
-              <td width="40%">Email</td>
-              <td class="text-justify"><input type="text" name="email" /></td>
-            </tr>
-			<tr >
-              <td width="40%">Type</td>
-              <td ><input  class="radio" type="radio" name="gender" value="Admin"> Admin<br>
-					<input class="radio" type="radio" name="gender" value="User"> User<br>
-					<input  class="radioh" type="radio" name="gender" value="Expert"> Expert
-				</td>
-            </tr>
-			<tr class="p">
-              <td width="40%">Skill</td>
-              <td>
-                <input type="checkbox" > AC<br/><input type="checkbox" > TV<br/><input type="checkbox" > Mobile<br/><input type="checkbox" > Refigerator<br/><input type="checkbox" > Others
-              </td>
-            </tr>
-            <tr >
-              <td width="40%">Address</td>
-              <td>
-                <textarea id="Address" name="Address" style="height:100px;width:300px"></textarea>
-              </td>
-            </tr>
-            <tr >
-              <td width="40%">Phone number</td>
-              <td class="text-justify"><input type="text" name="Phone" /></td>
-            </tr>
-          </table>
-        </div>
-        <div class="col-4"  style="padding-right: 100px">
-           <img src="../images/user_pic.png" style="width:100%">
-        </div>
-     </div>
+      <div class="row">
+        <div class="col-12">
+          <h1>Services</h1>
+          <div class="card mb-3">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Service type</th>
+                  <th>Expart</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              
+              <tbody>
 
-<div class="form-row text-center">
-     <div class="col-4" style="padding-top: 20px">
-          <button type="submit" class="btn btn-primary" onclick="window.location='';">Add Member</button>
+                <tr>
+                  <td>AC</td>
+                  <td>Rajesh</td>
+                  <td>1/2/18</td>
+                  <td><button type="button" class="btn btn-primary">On Going</button></td>
+                  
+                </tr>
+                <tr>
+                  <td>AC</td>
+                  <td>Rajesh</td>
+                  <td>1/2/18</td>
+                  <td><button type="button" class="btn btn-danger">Canceled</button></td>
+                </tr>
+                <tr>
+                  <td>AC</td>
+                  <td>Rajesh</td>
+                  <td>1/2/18</td>
+                  <td><button type="button" class="btn btn-success">Completed</button></td>
+                </tr>
+              
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+        </div>
+      </div>
     </div>
-  </div>
-   
       <!-- Example DataTables Card-->
      
     <!-- /.container-fluid-->
@@ -160,7 +154,6 @@
         </div>
       </div>
     </footer>
-	</div>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="../#page-top">
       <i class="fa fa-angle-up"></i>
@@ -199,25 +192,6 @@
     <script src="../js/sb-admin-charts.min.js"></script>
   </div>
 </body>
-
-<script>
-
-        $("tr.p").hide();
-</script>
-
-<script>
-
-$(document).ready(function () {
-       $('.radioh').click(function () {
-           $("tr.p").show();
-       });
-	   $('.radio').click(function () {
-           $("tr.p").hide();
-       });
-	   
-
-   });
-</script>
 
 <script>
 if (sessionStorage.getItem("navbar")== "true") 
