@@ -13,7 +13,7 @@ var login = require('./controllers/login');
 
 // CONFIGURATION
 app.set('view engine', 'ejs');
-
+app.use( express.static( "public" ) );
 
 // MIDDLEWARES
 app.use(bodyParser.urlencoded({extended:false}));
