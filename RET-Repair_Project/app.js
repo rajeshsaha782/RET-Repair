@@ -7,6 +7,8 @@ var expressSession = require('express-session');
 var mysql = require('mysql');
 
 var login = require('./controllers/login');
+var register = require('./controllers/register');
+var admin = require('./controllers/admin');
 // var logout = require('./controllers/logout');
 // var home = require('./controllers/home');
 
@@ -21,6 +23,9 @@ app.use(expressSession({secret: 'my top secret pass', saveUninitialized: true, r
 
 // ROUTES
 app.use('/home', login);
+app.use('/register', register);
+app.use('/admin', admin);
+
 // app.use('/logout', logout);
 // app.use('/home', home);
 
