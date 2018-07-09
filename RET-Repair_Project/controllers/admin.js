@@ -62,6 +62,24 @@ router.get('/Change_password', function(req, res){
 	res.render('admin/Change_password');
 	//res.send('Hello');
 });
+router.post('/Change_password', function(req, res){
+
+	var oldPass = req.body.oldPass;
+	var newPass = req.body.newPass;
+	var rePass = req.body.rePass;
+	var userEmail=req.session.username;
+
+	userModel.getByEmail(userEmail,function(result)
+	{
+		var id=result.ID;
+		userModel.updatePassword(rePass,id, function(obj){
+
+			res.send("Password Changed");
+		});
+	});
+
+	//res.send('Hello');
+});
 
 router.get('/Edit_profile/:id', function(req, res){
 

@@ -59,4 +59,12 @@ module.exports = {
 		})
 	},
 
+	updatePassword: function(Password,id, callback){
+		var sql = "UPDATE users SET Password=? WHERE ID=?";
+		db.executeQuery(sql, [Password,id], function(result){
+			callback(result);
+		})
+	},
+
+
 };
