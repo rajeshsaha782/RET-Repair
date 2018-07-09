@@ -9,6 +9,7 @@ var mysql = require('mysql');
 var home = require('./controllers/home');
 var register = require('./controllers/register');
 var admin = require('./controllers/admin');
+var customer = require('./controllers/customer');
 var logout = require('./controllers/logout');
 // var home = require('./controllers/home');
 
@@ -44,6 +45,7 @@ app.use('*', function(req, res, next){
 app.use('/home', home);
 app.use('/register', register);
 app.use('/admin', admin);
+app.use('/admin', customer);
 app.use('/logout', logout);
 // app.use('/home', home);
 
