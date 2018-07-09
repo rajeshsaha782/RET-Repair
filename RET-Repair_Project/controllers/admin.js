@@ -56,6 +56,27 @@ router.get('/Add_member', function(req, res){
 	res.render('admin/Add_member');
 	//res.send('Hello');
 });
+router.post('/Add_member', function(req, res){
+
+	var user={
+		 name : req.body.name,
+		 email : req.body.email,
+		 type : req.body.type,
+		 password : req.body.password,
+		 address : req.body.address,
+		 phonenumber : req.body.phonenumber
+	}
+	
+
+	userModel.insert(user, function(obj){
+
+			res.send(obj);
+		});
+
+
+	// res.render('admin/Add_member');
+	//res.send('Hello');
+});
 
 
 router.get('/Change_password', function(req, res){

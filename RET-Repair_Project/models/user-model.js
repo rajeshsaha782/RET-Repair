@@ -66,5 +66,12 @@ module.exports = {
 		})
 	},
 
+	insert: function(user, callback){
+		var sql = "INSERT INTO users VALUES (null, ?, ?, ?, ?, ?, ?,null,null,null)";
+		db.executeQuery(sql, [user.name,user.email,user.password,user.address,user.type,user.phonenumber], function(result){
+			callback(result);
+		})
+	},
+
 
 };
