@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 var mysql = require('mysql');
 
-var login = require('./controllers/login');
+var home = require('./controllers/home');
 var register = require('./controllers/register');
 var admin = require('./controllers/admin');
 // var logout = require('./controllers/logout');
@@ -21,8 +21,27 @@ app.use( express.static( "public" ) );
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(expressSession({secret: 'my top secret pass', saveUninitialized: true, resave: false}));
 
+
+app.use('*', function(req, res, next){
+	if(req.originalUrl == '/home' || req.originalUrl == '/register'|| req.originalUrl == '/logout' )
+	{
+		next();
+	}
+	else
+	{
+		if(!req.session.username)
+		{
+			res.redirect('/home');
+			
+			return;
+		}
+		next();
+	}
+});
+
+
 // ROUTES
-app.use('/home', login);
+app.use('/home', home);
 app.use('/register', register);
 app.use('/admin', admin);
 
