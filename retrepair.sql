@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2018 at 10:47 AM
+-- Generation Time: Jul 09, 2018 at 10:56 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -107,7 +107,6 @@ CREATE TABLE `users` (
   `Address` varchar(100) NOT NULL,
   `Type` varchar(100) NOT NULL,
   `PhoneNumber` varchar(100) NOT NULL,
-  `Data` varchar(100) DEFAULT NULL,
   `Rating` int(5) DEFAULT NULL,
   `MinimumPayment` float DEFAULT NULL,
   `SignInDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
