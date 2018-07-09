@@ -45,7 +45,7 @@ module.exports = {
 	},
 
 	getAllExperts: function(callback){
-		var sql = "SELECT * FROM users WHERE Type=2";
+		var sql = "SELECT * FROM users WHERE Type=Experts";
 		db.executeQuery(sql, null, function(result){
 			callback(result);
 		});
