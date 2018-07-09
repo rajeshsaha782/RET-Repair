@@ -20,9 +20,31 @@ router.get('/Customer_request_status', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/Edit_profile', function(req, res){
+router.get('/Edit_profile/:id', function(req, res){
 
-	res.render('customer/Edit_profile');
+	var id = req.params.id;
+	userModel.getById(id, function(obj){
+		res.render('customer/Edit_profile',obj);
+	});
+	
+	//res.send('Hello');
+});
+router.post('/Edit_profile/:id', function(req, res){
+
+	var id = req.params.id;
+	var name = req.body.name;
+	var type = req.body.type;
+	var address = req.body.address;
+	var phonenumber = req.body.phonenumber;
+
+	userModel.update(id,name,type,address,phonenumber, function(obj){
+
+		userModel.getById(id, function(obj){
+			res.render('customer/View_member',obj);
+		});
+		
+	});
+	
 	//res.send('Hello');
 });
 

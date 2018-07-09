@@ -184,21 +184,21 @@
           <table class="table table-striped" style="width: 80%">
             <tr>
               <td width="40%">Name</td>
-              <td class="text-justify"><input type="text" name="name" value="Rajesh saha"/></td>
+              <td class="text-justify"><input type="text" name="name" value="<%= Name %>"/></td>
             </tr>
             <tr >
               <td width="40%">Email</td>
-              <td class="text-justify">r@gmail.com</td>
+              <td class="text-justify"><%= Email %></td>
             </tr>
             <tr >
               <td width="40%">Address</td>
               <td>
-                <textarea id="Address" name="Address" style="height:100px;width:300px">Address given in account</textarea>
+                <textarea id="Address" name="Address" style="height:100px;width:300px"><%= Address %></textarea>
               </td>
             </tr>
             <tr >
               <td width="40%">Phone number</td>
-              <td class="text-justify"><input type="text" name="Phone" value="016xxxxxxx"/></td>
+              <td class="text-justify"><input type="text" name="Phone" value="<%= PhoneNumber %>"/></td>
             </tr>
           </table>
         </div>
@@ -209,7 +209,7 @@
 
 <div class="form-row text-center">
      <div class="col-4" style="padding-top: 20px">
-          <button type="submit" class="btn btn-primary" onclick="window.location='index';">Save Changes</button>
+          <button type="submit" class="btn btn-primary" >Save Changes</button>
     </div>
   </div>
     
