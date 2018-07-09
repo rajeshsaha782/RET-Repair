@@ -38,25 +38,25 @@ module.exports = {
 	},
 
 	getAllCustomers: function(callback){
-		var sql = "SELECT * FROM users WHERE Type=Customer";
+		var sql = "SELECT * FROM users WHERE Type='Customer'";
 		db.executeQuery(sql, null, function(result){
 			callback(result);
 		});
 	},
 
 	getAllExperts: function(callback){
-		var sql = "SELECT * FROM users WHERE Type=Experts";
+		var sql = "SELECT * FROM users WHERE Type='Expert'";
 		db.executeQuery(sql, null, function(result){
 			callback(result);
 		});
 	},
-	
-	editById: function(name, address,phonenumber, id, callback){
-		var sql = "UPDATE `users` SET Name =?, Address = ?, PhoneNumber = ? WHERE ID = ?";
-		db.executeQuery(sql, [name, address,phonenumber, id], function(result){
+
+
+	update: function(id,name,type,address,phonenumber, callback){
+		var sql = "UPDATE users SET Name=?, Type=?, Address=?, PhoneNumber=? WHERE ID=?";
+		db.executeQuery(sql, [name,type,address,phonenumber,id], function(result){
 			callback(result);
 		})
-	}
-
+	},
 
 };

@@ -1,10 +1,42 @@
 var express = require('express');
 var router = express.Router();
 var userModel = require.main.require('./models/user-model');
+var requestModel = require.main.require('./models/request-model');
+
 
 router.get('/dashboard', function(req, res){
+	
+	var DashboardViewModel=new Object();
+	userModel.getAllCustomers(function(result)
+	{
+		DashboardViewModel.TotalCustomer=result.length;
+		//console.log(DashboardViewModel.TotalCustomer);
 
-	res.render('admin/Dashboard');
+
+		userModel.getAllExperts(function(result)
+		{
+			DashboardViewModel.TotalExpert=result.length;
+			//console.log(DashboardViewModel);
+
+
+			requestModel.getAllCancelService(function(result)
+			{
+			DashboardViewModel.TotalCancelService=result.length;
+			//console.log(DashboardViewModel);
+				
+
+
+				res.render('admin/Dashboard', {DashboardViewModel});
+			});
+		
+		});
+
+
+		
+	});
+
+	
+	
 	//res.send('Hello');
 });
 
@@ -21,21 +53,31 @@ router.get('/Change_password', function(req, res){
 });
 
 router.get('/Edit_profile/:id', function(req, res){
+
 	var id = req.params.id;
 	userModel.getById(id, function(obj){
-		res.render('admin/Edit_profile', obj);
+		res.render('admin/Edit_profile',obj);
 	});
+	
 	//res.send('Hello');
 });
+router.post('/Edit_profile/:id', function(req, res){
 
-router.post('/Edit_profile', function(req, res){
-	var id = req.body.uid;
-	var name = req.body.uname;
+	var id = req.params.id;
+	var name = req.body.name;
+	var type = req.body.type;
 	var address = req.body.address;
-	var phonenumber=req.body.phnno;
-	categoryModel.update(name, address,phonenumber, id, function(obj){
-		res.redirect('admin/Edit_profile');
+	var phonenumber = req.body.phonenumber;
+
+	userModel.update(id,name,type,address,phonenumber, function(obj){
+
+		userModel.getById(id, function(obj){
+			res.render('admin/View_member',obj);
+		});
+		
 	});
+	
+	//res.send('Hello');
 });
 
 
@@ -65,7 +107,7 @@ router.get('/View_member/:id', function(req, res){
 
 	var id = req.params.id;
 	userModel.getById(id, function(obj){
-		res.render('admin/View_member', obj);
+		res.render('admin/View_member',obj);
 	});
 
 	//res.send('Hello');

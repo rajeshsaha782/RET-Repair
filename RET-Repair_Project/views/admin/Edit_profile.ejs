@@ -9,56 +9,56 @@
   <meta name="author" content="">
   <title>RET Repair</title>
   <!-- Bootstrap core CSS-->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin.css" rel="stylesheet">
+  <link href="../../css/sb-admin.css" rel="stylesheet">
 </head>
 
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="Dashboard">RET Repair</a>
+    <a class="navbar-brand" href="../Dashboard">RET Repair</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="Dashboard">
+          <a class="nav-link" href="../Dashboard">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li><li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="Edit_profile">
+          <a class="nav-link" href="../Edit_profile">
             <i class="fa fa-fw fa-edit"></i>
             <span class="nav-link-text">Edit profile</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="Change_password">
+          <a class="nav-link" href="../Change_password">
             <i class="fa fa-fw fa-key"></i>
             <span class="nav-link-text">Change Password</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="Add_member">
+          <a class="nav-link" href="../Add_member">
             <i class="fa fa-fw fa-user-plus"></i>
             <span class="nav-link-text">Add Member</span>
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="View_All_Members">
+          <a class="nav-link" href="../View_All_Members">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">View Members</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="navbar">
+          <a class="nav-link" href="../navbar">
             <i class="fa fa-fw fa-cog"></i>
             <span class="nav-link-text">Settings</span>
           </a>
@@ -91,7 +91,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="../#">Dashboard</a>
+          <a href="../../#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
@@ -101,40 +101,46 @@
         <h3>Edit profile</h3>
       </div>
      </div>
+
+     <form method="post">
      <div class="row">
         <div class="col-8">
           <table class="table table-striped" style="width: 80%">
             <tr>
               <td width="40%">Name</td>
-              <td class="text-justify"><input type="text" name="name" value="Rajesh saha"/></td>
+              <td class="text-justify"><input type="text" name="name" value="<%= Name %>"/></td>
             </tr>
             <tr >
               <td width="40%">Email</td>
               <td class="text-justify">r@gmail.com</td>
             </tr>
+            <tr>
+              <td width="40%">Type</td>
+              <td class="text-justify"><input type="text" name="type" value="<%= Type %>"/></td>
+            </tr>
             <tr >
               <td width="40%">Address</td>
               <td>
-                <textarea id="Address" name="Address" style="height:100px;width:300px">Address given in account</textarea>
+                <textarea id="Address" name="address" style="height:100px;width:300px">Address given in account</textarea>
               </td>
             </tr>
             <tr >
               <td width="40%">Phone number</td>
-              <td class="text-justify"><input type="text" name="Phone" value="016xxxxxxx"/></td>
+              <td class="text-justify"><input type="text" name="phonenumber" value="<%= PhoneNumber %>"/></td>
             </tr>
           </table>
         </div>
         <div class="col-4"  style="padding-right: 100px">
-           <img src="../images/user_pic.png" style="width:100%">
+           <img src="../../images/user_pic.png" style="width:100%">
         </div>
      </div>
 
 <div class="form-row text-center">
      <div class="col-4" style="padding-top: 20px">
-          <button type="submit" class="btn btn-primary" onclick="window.location='index';">Save Changes</button>
+          <button type="submit" class="btn btn-primary" >Save Changes</button>
     </div>
   </div>
-   
+   </form>
       <!-- Example DataTables Card-->
      
     <!-- /.container-fluid-->
@@ -148,7 +154,7 @@
     </footer>
 	</div>
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="../#page-top">
+    <a class="scroll-to-top rounded" href="../../#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
     <!-- Logout Modal-->
@@ -164,25 +170,25 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../logout">Logout</a>
+            <a class="btn btn-primary" href="../../logout">Logout</a>
           </div>
         </div>
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-    <script src="../vendor/datatables/jquery.dataTables.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
+    <script src="../../vendor/datatables/jquery.dataTables.js"></script>
+    <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin.min.js"></script>
+    <script src="../../js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="../js/sb-admin-datatables.min.js"></script>
-    <script src="../js/sb-admin-charts.min.js"></script>
+    <script src="../../js/sb-admin-datatables.min.js"></script>
+    <script src="../../js/sb-admin-charts.min.js"></script>
   </div>
 </body>
 
