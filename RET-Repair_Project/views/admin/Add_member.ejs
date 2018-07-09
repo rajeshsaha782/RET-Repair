@@ -122,7 +122,7 @@
                   <div class="form-label-group">
                     <label for="inputtype">Type</label>
                     <input type="radio" class="radio" name="type" class="form-control" value="Admin" required autofocus>Admin
-                    <input type="radio" class="radio"name="type" class="form-control" value="Expart"required autofocus>Expart
+                    <input type="radio" class="radioh"name="type" class="form-control" value="Expert"required autofocus>Expert
                     <input type="radio" class="radio" name="type" class="form-control" value="Customer"required autofocus>Customer
                   </div>
 
@@ -262,17 +262,17 @@
 
 <script>
 
-        $("tr.p").hide();
+        $("div.p").hide();
 </script>
 
 <script>
 
 $(document).ready(function () {
        $('.radioh').click(function () {
-           $("tr.p").show();
+           $("div.p").show();
        });
 	   $('.radio').click(function () {
-           $("tr.p").hide();
+           $("div.p").hide();
        });
 	   
 
