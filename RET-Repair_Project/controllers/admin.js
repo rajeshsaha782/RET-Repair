@@ -7,6 +7,9 @@ var requestModel = require.main.require('./models/request-model');
 router.get('/dashboard', function(req, res){
 	
 	var DashboardViewModel=new Object();
+	var userEmail=req.session.username;
+	console.log(userEmail);
+
 	userModel.getAllCustomers(function(result)
 	{
 		DashboardViewModel.TotalCustomer=result.length;
@@ -26,7 +29,15 @@ router.get('/dashboard', function(req, res){
 				
 
 
-				res.render('admin/Dashboard', {DashboardViewModel});
+				userModel.getByEmail(userEmail,function(result)
+				{
+				DashboardViewModel.userId=result.ID;
+				//console.log(DashboardViewModel);
+					
+
+
+					res.render('admin/Dashboard', {DashboardViewModel});
+				});
 			});
 		
 		});
