@@ -4,7 +4,6 @@ var userModel = require.main.require('./models/user-model');
 
 router.get('/dashboard', function(req, res){
 
-
 	res.render('admin/Dashboard');
 	//res.send('Hello');
 });
@@ -49,8 +48,13 @@ router.get('/View_All_Members', function(req, res){
 });
 
 
-router.get('/View_member', function(req, res){
-	res.render('admin/View_member');
+router.get('/View_member/:id', function(req, res){
+
+	var id = req.params.id;
+	userModel.getById(id, function(obj){
+		res.render('admin/View_member', obj);
+	});
+
 	//res.send('Hello');
 });
 

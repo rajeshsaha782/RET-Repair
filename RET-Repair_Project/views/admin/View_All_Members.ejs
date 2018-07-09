@@ -110,7 +110,7 @@
 			</thead>
 			<tbody class="table-active">
       <% for(var i = 0; i < Users.length; i++){ %>
-  			<tr onclick="window.location='View_member';">
+  			<tr onclick="window.location='View_member/<%= Users[i].ID %>';">
   				<td><img src="../images/user_pic.png" style="width:50px" class="rounded-circle"></td>
   				<td><%= Users[i].Name %></td>
   				<td><%= Users[i].Email %></td>

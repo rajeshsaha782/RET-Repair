@@ -23,6 +23,13 @@ module.exports = {
 		});
 	},
 
+	getById: function(Id, callback){
+		var sql = "SELECT * FROM users WHERE ID=?";
+		db.executeQuery(sql, [Id], function(result){
+			callback(result[0]);
+		});
+	},
+
 	getAll: function(callback){
 		var sql = "SELECT * FROM users";
 		db.executeQuery(sql, null, function(result){
@@ -30,8 +37,8 @@ module.exports = {
 		});
 	},
 
-	getAllUsers: function(callback){
-		var sql = "SELECT * FROM users WHERE Type=3";
+	getAllCustomers: function(callback){
+		var sql = "SELECT * FROM users WHERE Type=Customer";
 		db.executeQuery(sql, null, function(result){
 			callback(result);
 		});
