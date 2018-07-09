@@ -104,7 +104,67 @@
      </div>
      <div class="row">
         <div class="col-8">
-          <table class="table table-striped" style="width: 80%">
+
+          <div class="card-body">
+        <form class="form-signin" method="post">
+
+                  <div class="form-label-group">
+                    <label for="inputName">Name</label>
+                    <input type="name" name="name" class="form-control" placeholder="Name" required autofocus>
+                    
+                  </div>
+                  <div class="form-label-group">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                    
+                  </div>
+                  
+                  <div class="form-label-group">
+                    <label for="inputtype">Type</label>
+                    <input type="radio" class="radio" name="type" class="form-control" value="Admin" required autofocus>Admin
+                    <input type="radio" class="radio"name="type" class="form-control" value="Expart"required autofocus>Expart
+                    <input type="radio" class="radio" name="type" class="form-control" value="Customer"required autofocus>Customer
+                  </div>
+
+
+                  <div class="form-label-group p">
+                    <label for="inputtype">Skills</label>
+                    <input type="checkbox" name="skills"  value="AC" >AC
+                    <input type="checkbox" name="skills"  value="TV" >TV
+                    <input type="checkbox" name="skills"  value="Mobile" >Mobile
+                    <input type="checkbox" name="skills"  value="Refigerator" >Refigerator
+                    <input type="checkbox" name="skills"  value="Others" >Others
+
+                  </div>
+
+                  <div class="form-label-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    
+                  </div>
+
+                  <div class="form-label-group">
+                    <label for="inputaddress">Address</label>
+                    <input type="textarea" name="address" class="form-control" placeholder="Address" >
+                    
+                  </div>
+
+                   <div class="form-label-group">
+                    <label for="inputphn">Phone Number</label>
+                    <input type="text" name="phonennumber" class="form-control" placeholder="Phone Number" >
+                    
+                  </div>
+
+
+                  <br/>
+                 
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" >ADD</button>
+                  
+                </form>
+          
+        
+      </div>
+          <!-- <table class="table table-striped" style="width: 80%">
             <tr>
               <td width="40%">Name</td>
               <td class="text-justify"><input type="text" name="name" /></td>
@@ -136,18 +196,18 @@
               <td width="40%">Phone number</td>
               <td class="text-justify"><input type="text" name="Phone" /></td>
             </tr>
-          </table>
+          </table> -->
         </div>
         <div class="col-4"  style="padding-right: 100px">
            <img src="../images/user_pic.png" style="width:100%">
         </div>
      </div>
 
-<div class="form-row text-center">
+<!-- <div class="form-row text-center">
      <div class="col-4" style="padding-top: 20px">
           <button type="submit" class="btn btn-primary" onclick="window.location='';">Add Member</button>
     </div>
-  </div>
+  </div> -->
    
       <!-- Example DataTables Card-->
      
