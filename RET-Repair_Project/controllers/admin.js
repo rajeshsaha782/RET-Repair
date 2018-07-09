@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
-// var userModel = require.main.require('./models/user-model');
+var userModel = require.main.require('./models/user-model');
 
 router.get('/dashboard', function(req, res){
+
+
 	res.render('admin/Dashboard');
 	//res.send('Hello');
 });
@@ -38,7 +40,11 @@ router.get('/Services', function(req, res){
 
 
 router.get('/View_All_Members', function(req, res){
-	res.render('admin/View_All_Members');
+
+	userModel.getAll(function(result){
+		res.render('admin/View_All_Members', {Users: result});
+	});
+	
 	//res.send('Hello');
 });
 

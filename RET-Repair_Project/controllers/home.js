@@ -17,7 +17,7 @@ router.post('/', function(req, res){
 		{
 			req.session.username = Email;
 			userModel.getByEmail(Email, function(user){
-				if(user.Type==1)
+				if(user.Type=="Admin")
 				{
 					res.redirect('/admin/dashboard');
 				}

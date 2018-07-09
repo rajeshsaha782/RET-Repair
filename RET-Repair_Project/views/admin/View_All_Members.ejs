@@ -103,40 +103,21 @@
 			<tr>
 				<td>Picture</td>
 				<td>Name</td>
-				<td>Address</td>
+				<td>Email</td>
 				<td>Phone no</td>
 				<td>Type</td>
 			</tr>
 			</thead>
 			<tbody class="table-active">
-			<tr onclick="window.location='View_member';">
-				<td><img src="../images/user_pic.png" style="width:50px" class="rounded-circle"></td>
-				<td>John</td>
-				<td>Uttara</td>
-				<td>01911111111</td>
-				<td>Admin</td>
-			</tr>
-			<tr onclick="window.location='View_member';">
-				<td><img src="../images/robi.jpg" style="width:50px" class="rounded-circle"></td>
-				<td>Robi Ullah</td>
-				<td>Kuril Bisshawroad, Bashundhara,Dhaka</td>
-				<td>01911111111</td>
-				<td>User</td>
-			</tr>
-			<tr onclick="window.location='View_member';">
-				<td><img src="../images/user_pic.png" style="width:50px" class="rounded-circle"></td>
-				<td>John</td>
-				<td>Uttara</td>
-				<td>01911111111</td>
-				<td>Expert</td>
-			</tr>
-			<tr onclick="window.location='View_member';">
-				<td><img src="../images/user_pic.png" style="width:50px" class="rounded-circle"></td>
-				<td>John</td>
-				<td>Uttara</td>
-				<td>01911111111</td>
-				<td>User</td>
-			</tr>
+      <% for(var i = 0; i < Users.length; i++){ %>
+  			<tr onclick="window.location='View_member';">
+  				<td><img src="../images/user_pic.png" style="width:50px" class="rounded-circle"></td>
+  				<td><%= Users[i].Name %></td>
+  				<td><%= Users[i].Email %></td>
+  				<td><%= Users[i].PhoneNumber %></td>
+  				<td><%= Users[i].Type %></td>
+  			</tr>
+			<% } %>
 			</tbody>
 		</table>
         </div>
@@ -170,7 +151,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../login">Logout</a>
+            <a class="btn btn-primary" href="../logout">Logout</a>
           </div>
         </div>
       </div>

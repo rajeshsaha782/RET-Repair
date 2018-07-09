@@ -9,7 +9,7 @@ var mysql = require('mysql');
 var home = require('./controllers/home');
 var register = require('./controllers/register');
 var admin = require('./controllers/admin');
-// var logout = require('./controllers/logout');
+var logout = require('./controllers/logout');
 // var home = require('./controllers/home');
 
 
@@ -32,7 +32,7 @@ app.use('*', function(req, res, next){
 		if(!req.session.username)
 		{
 			res.redirect('/home');
-			
+
 			return;
 		}
 		next();
@@ -44,8 +44,7 @@ app.use('*', function(req, res, next){
 app.use('/home', home);
 app.use('/register', register);
 app.use('/admin', admin);
-
-// app.use('/logout', logout);
+app.use('/logout', logout);
 // app.use('/home', home);
 
 app.get('/', function(req, res){
