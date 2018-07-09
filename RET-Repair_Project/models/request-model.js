@@ -50,5 +50,49 @@ module.exports =
 			callback(result);
 		})
 	},
+	
+	countPendingRequest: function(callback){
+		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'Pending'";
+		db.executeQuery(sql,null, function(result){
+			callback(result);
+		})
+	},
+	
+	countConfirmedRequest: function(callback){
+		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'Confirmed'";
+		db.executeQuery(sql,null, function(result){
+			callback(result);
+		})
+	},
+	
+	countOnGoingRequest: function(callback){
+		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'On Going'";
+		db.executeQuery(sql,null, function(result){
+			callback(result);
+		})
+	},
+	
+	countCompletedRequest: function(callback){
+		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'Completed'";
+		db.executeQuery(sql,null, function(result){
+			callback(result);
+		})
+	},
+	
+	
+	countCanceledRequest: function(callback){
+		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'Canceled'";
+		db.executeQuery(sql,null, function(result){
+			callback(result);
+		})
+	},
+	
+	
+	countAllRequest: function(callback){
+		var sql = "SELECT COUNT(RequestID) FROM requests";
+		db.executeQuery(sql,null, function(result){
+			callback(result);
+		})
+	}
 
 };
