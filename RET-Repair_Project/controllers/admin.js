@@ -20,9 +20,22 @@ router.get('/Change_password', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/Edit_profile', function(req, res){
-	res.render('admin/Edit_profile');
+router.get('/Edit_profile/:id', function(req, res){
+	var id = req.params.id;
+	userModel.getById(id, function(obj){
+		res.render('admin/Edit_profile', obj);
+	});
 	//res.send('Hello');
+});
+
+router.post('/Edit_profile', function(req, res){
+	var id = req.body.uid;
+	var name = req.body.uname;
+	var address = req.body.address;
+	var phonenumber=req.body.phnno;
+	categoryModel.update(name, address,phonenumber, id, function(obj){
+		res.redirect('admin/Edit_profile');
+	});
 });
 
 

@@ -50,6 +50,13 @@ module.exports = {
 			callback(result);
 		});
 	},
+	
+	editById: function(name, address,phonenumber, id, callback){
+		var sql = "UPDATE `users` SET Name =?, Address = ?, PhoneNumber = ? WHERE ID = ?";
+		db.executeQuery(sql, [name, address,phonenumber, id], function(result){
+			callback(result);
+		})
+	}
 
 
 };

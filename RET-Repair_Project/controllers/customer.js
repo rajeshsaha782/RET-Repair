@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userModel = require.main.require('./models/user-model');
+var userModel = require.main.require('./models/customer-model');
 
 router.get('/Dashboard_user', function(req, res){
 
