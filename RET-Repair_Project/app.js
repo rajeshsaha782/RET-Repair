@@ -45,7 +45,7 @@ app.use('*', function(req, res, next){
 app.use('/home', home);
 app.use('/register', register);
 app.use('/admin', admin);
-app.use('/admin', customer);
+app.use('/customer', customer);
 app.use('/logout', logout);
 // app.use('/home', home);
 

@@ -21,6 +21,10 @@ router.post('/', function(req, res){
 				{
 					res.redirect('/admin/dashboard');
 				}
+				else if(user.Type=="Customer")
+				{
+					res.redirect('/customer/Dashboard_user');
+				}
 				else
 				{
 					res.send('Other user');

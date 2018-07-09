@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var userModel = require.main.require('./models/user-model');
 
-router.get('/dashboard_user', function(req, res){
+router.get('/Dashboard_user', function(req, res){
 
 	res.render('customer/Dashboard_user');
 	//res.send('Hello');
@@ -106,3 +106,4 @@ router.get('/Service_received', function(req, res){
 
 
 
+module.exports = router;
