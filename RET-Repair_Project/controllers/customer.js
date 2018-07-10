@@ -32,6 +32,24 @@ router.get('/Change_password', function(req, res){
 	//res.send('Hello');
 });
 
+router.post('/Change_password', function(req, res){
+
+	var userEmail=req.session.username;
+	var pass=req.body.newPass;
+		userModel.getByEmail(userEmail,function(user)
+		{
+				console.log(user);
+				userModel.updatePassword(pass,user.ID,function(result)
+				{
+					console.log(result);
+					res.render('customer/View_member',result);
+				});
+				
+		});
+	res.render('customer/Change_password');
+	//res.send('Hello');
+});
+
 router.get('/Customer_request_status/:id', function(req, res){
 
 	var id=req.params.id;
@@ -221,9 +239,16 @@ router.get('/request_server_filter_rating', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/Service_received', function(req, res){
+router.get('/Service_received/:id/:code', function(req, res){
 
-	res.render('customer/Service_received');
+	var id=req.params.id;
+	var code=req.params.code;
+	requestModel.getRequestByCustomerIdwithExpert(id,function(obj){
+		
+		console.log(code);
+		
+		res.render('customer/Service_received',{experts:obj,code});
+	});
 	//res.send('Hello');
 });
 

@@ -41,7 +41,7 @@
           </a>
         </li>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="Service_received">
+          <a class="nav-link" href="Service_received/<%= DashboardViewModel.userId %>/1">
             <i class="fa fa-fw fa-american-sign-language-interpreting"></i>
             <span class="nav-link-text">Service Received</span>
           </a>
@@ -190,7 +190,7 @@
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3" style="cursor:pointer" onclick="window.location='Service_received';">
+        <div class="col-xl-3 col-sm-6 mb-3" style="cursor:pointer" onclick="window.location='Service_received/<%= DashboardViewModel.userId %>/2';">
           <div class="card text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -222,7 +222,7 @@
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-3"  style="cursor:pointer" onclick="window.location='Service_received';">
+        <div class="col-xl-3 col-sm-6 mb-3"  style="cursor:pointer" onclick="window.location='Service_received/<%= DashboardViewModel.userId %>/2';">
           <div class="card text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
@@ -250,7 +250,7 @@
 				<td width="75%">
 					<div class="media">
 						<a href="#" class="pull-left">
-							<img src="images/robi.jpg" width="100px" class="media-photo rounded-circle">
+							<img src="../../images/robi.jpg" width="100px" class="media-photo rounded-circle">
 						</a>
 						<div class="media-body" >
 							
