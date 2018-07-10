@@ -57,7 +57,7 @@ router.get('/Change_password', function(req, res){
 var userEmail=req.session.username;
 	userModel.getByEmail(userEmail,function(result)
 	{
-			res.render('admin/Change_password',{userId:result.ID});
+			res.render('expert/Change_password',{userId:result.ID});
 	});
 
 	

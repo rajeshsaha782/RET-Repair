@@ -44,4 +44,10 @@ router.post('/', function(req, res){
 	
 });
 
+
+router.post('/register', function(req, res){
+	//res.render('register');
+	res.send('Hello');
+});
+
 module.exports = router;
