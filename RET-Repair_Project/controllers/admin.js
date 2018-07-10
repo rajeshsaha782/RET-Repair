@@ -85,7 +85,14 @@ router.get('/dashboard', function(req, res){
 
 
 router.get('/Add_member', function(req, res){
-	res.render('admin/Add_member');
+
+	var userEmail=req.session.username;
+
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('admin/Add_member',{userId:result.ID});
+	});
+
 	
 });
 router.post('/Add_member', function(req, res){
@@ -112,7 +119,13 @@ router.post('/Add_member', function(req, res){
 
 
 router.get('/Change_password', function(req, res){
-	res.render('admin/Change_password');
+
+var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('admin/Change_password',{userId:result.ID});
+	});
+
 	
 });
 router.post('/Change_password', function(req, res){
@@ -164,15 +177,27 @@ router.post('/Edit_profile/:id', function(req, res){
 
 
 router.get('/navbar', function(req, res){
-	res.render('admin/navbar');
+
+var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('admin/navbar',{userId:result.ID});
+	});
+
 	
 });
 
 
 router.get('/Services', function(req, res){
 
+var userEmail=req.session.username;
 	requestModel.getAllService(function(result){
-		res.render('admin/Services', {Services: result});
+
+		userModel.getByEmail(userEmail,function(user)
+		{
+				res.render('admin/Services',{Services: result,userId:user.ID});
+		});
+
 	});
 
 	
@@ -181,8 +206,14 @@ router.get('/Services', function(req, res){
 
 router.get('/View_All_Members', function(req, res){
 
+var userEmail=req.session.username;
 	userModel.getAll(function(result){
-		res.render('admin/View_All_Members', {Users: result});
+
+		userModel.getByEmail(userEmail,function(user)
+		{
+				res.render('admin/View_All_Members',{Users: result,userId:user.ID});
+		});
+		
 	});
 	
 	
