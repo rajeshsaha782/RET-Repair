@@ -10,8 +10,9 @@ var home = require('./controllers/home');
 var register = require('./controllers/register');
 var admin = require('./controllers/admin');
 var customer = require('./controllers/customer');
+var expert = require('./controllers/expert');
 var logout = require('./controllers/logout');
-// var home = require('./controllers/home');
+
 
 
 // CONFIGURATION
@@ -46,8 +47,9 @@ app.use('/home', home);
 app.use('/register', register);
 app.use('/admin', admin);
 app.use('/customer', customer);
+//app.use('/expert', expert);
 app.use('/logout', logout);
-// app.use('/home', home);
+
 
 app.get('/', function(req, res){
 	res.redirect('/home');

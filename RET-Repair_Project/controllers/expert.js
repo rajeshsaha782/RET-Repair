@@ -56,3 +56,4 @@ router.get('/sevice_provider_user_request_details', function(req, res){
 	//res.send('Hello');
 });
 
+module.exports = router;
