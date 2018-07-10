@@ -156,8 +156,16 @@ router.get('/service_provider_requests', function(req, res){
 
 router.get('/sevice_provider_user_request_details', function(req, res){
 
-	res.render('expert/sevice_provider_user_request_details');
-	//res.send('Hello');
+
+var userEmail=req.session.username;
+		userModel.getByEmail(userEmail,function(user)
+		{
+				//console.log(result);
+				res.render('expert/sevice_provider_user_request_details',{userId:user.ID});
+
+		});
+	
+
 });
 
 module.exports = router;

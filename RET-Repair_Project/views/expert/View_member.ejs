@@ -25,26 +25,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link"  href="../index">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Service</span>
-          </a>
-        </li>
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="../Dashboard_user">
+          <a class="nav-link" href="../Dashboard">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="../Service_received">
+          <a class="nav-link" href="../service_provider_requests">
             <i class="fa fa-fw fa-american-sign-language-interpreting"></i>
-            <span class="nav-link-text">Service Received</span>
+            <span class="nav-link-text">All Services</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="../Edit_profile">
+          <a class="nav-link" href="../Edit_profile/<%= ID%>">
             <i class="fa fa-fw fa-edit"></i>
             <span class="nav-link-text">Edit profile</span>
           </a>
@@ -60,13 +55,6 @@
           <a class="nav-link" href="../navbar">
             <i class="fa fa-fw fa-cog"></i>
             <span class="nav-link-text">Settings</span>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
           </a>
         </li>
       </ul>
@@ -102,7 +90,7 @@
               <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="../messages_filter_none">View all messages</a>
+            <a class="dropdown-item small" href="../#">View all messages</a>
           </div>
         </li>
         <li class="nav-item dropdown">
