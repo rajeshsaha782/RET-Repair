@@ -47,7 +47,7 @@ app.use('/home', home);
 app.use('/register', register);
 app.use('/admin', admin);
 app.use('/customer', customer);
-//app.use('/expert', expert);
+app.use('/expert', expert);
 app.use('/logout', logout);
 
 
