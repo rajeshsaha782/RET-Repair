@@ -73,9 +73,9 @@ module.exports = {
 		})
 	},
 
-	insert: function(user, callback){
-		var sql = "INSERT INTO users VALUES (null, ?, ?, ?, ?, ?, ?,null,null,null)";
-		db.executeQuery(sql, [user.name,user.email,user.password,user.address,user.type,user.phonenumber], function(result){
+	insert: function(name,email,type,pass,address,phonenumber, callback){
+		var sql = "INSERT INTO users VALUES (NULL, ?, ?, ?, ?, ?, ?,NULL,NULL,CURRENT_TIMESTAMP)";
+		db.executeQuery(sql, [name,email,pass,address,type,phonenumber], function(result){
 			callback(result);
 		})
 	},

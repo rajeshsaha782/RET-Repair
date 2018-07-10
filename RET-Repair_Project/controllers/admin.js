@@ -58,19 +58,19 @@ router.get('/Add_member', function(req, res){
 });
 router.post('/Add_member', function(req, res){
 
-	var user={
-		 name : req.body.name,
-		 email : req.body.email,
-		 type : req.body.type,
-		 password : req.body.password,
-		 address : req.body.address,
-		 phonenumber : req.body.phonenumber
-	}
+	
+	var name = req.body.name;
+	var email = req.body.email;
+	var type = req.body.type;
+	var pass = req.body.pass;
+	var address = req.body.address;
+	var phonenumber = req.body.phonenumber;
+	
 	
 
-	userModel.insert(user, function(obj){
-
-			res.send(obj);
+	userModel.insert(name,email,type,pass,address,phonenumber, function(obj){
+			console.log(obj);
+			res.redirect("View_member/"+obj.insertId);
 		});
 
 

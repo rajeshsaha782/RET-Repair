@@ -50,9 +50,7 @@ app.use('/logout', logout);
 // app.use('/home', home);
 
 app.get('/', function(req, res){
-	console.log(req.session);
-	req.session.name = 'ABCD';
-	res.send('Value set');
+	res.redirect('/home');
 });
 
 
