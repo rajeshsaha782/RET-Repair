@@ -195,7 +195,7 @@ td {text-align:center}
 				</tr>
 				<tr>
 					<td width="50%"><button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#messageModal">Message</button></td>
-					<td><input type="button" class="btn btn-outline-primary" value="Show Phone No." onclick="change()" id="myButton1"/></td>
+					<td><input type="button" class="btn btn-outline-primary s" value="Show Phone No." onclick="change()" /><input type="button" class="btn btn-outline-primary q" value="<%=object.PhoneNumber %>" /></td>
 				</tr>
 				<tr>
 					<td colspan="2">
@@ -317,6 +317,8 @@ td {text-align:center}
 <script>
 $("tr.r").hide();
 $("tr.p").hide();
+$("input.q").hide();
+
 
 if(document.getElementById("ConfirmButton").value=="Pending")
 {
@@ -326,8 +328,8 @@ if(document.getElementById("ConfirmButton").value=="Pending")
 
 if(document.getElementById("ConfirmButton").value=="Completed")
 {
-	$('#ConfirmButton').toggleClass('btn-outline-secondary btn-outline-success');
-	$("#ConfirmButton1").removeClass('hidden');
+	$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-success');
+	$("#ConfirmButton1").addClass('hidden');
 	$("tr.r").show();
 	document.getElementById("ConfirmButton1").value="Give Review";
 	$("#cancelButton").addClass('hidden');
@@ -337,6 +339,12 @@ if(document.getElementById("ConfirmButton").value=="Completed")
 if(document.getElementById("ConfirmButton").value=="Confirmed")
 {
 	$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+}
+
+if(document.getElementById("ConfirmButton").value=="On Going")
+{
+	$('#ConfirmButton').toggleClass('btn-outline-secondary btn-outline-warning');
+	$("#ConfirmButton1").addClass('hidden');
 }
 
 if(PaymentDescription!=NULL)
@@ -349,7 +357,8 @@ if(PaymentDescription!=NULL)
 <script>
 function change()
 {
-    document.getElementById("myButton1").value="01911111111"; 
+    $("input.s").hide();
+	$("input.q").show();
 }
 
 function change2()
