@@ -10,7 +10,7 @@ module.exports =
 	},
 	
 	addRequest: function(customerid,expertid,servicetype,problemdesc, callback){
-		var sql = "INSERT INTO `requests` ( `CustomerID`, `ExpertID`, `ServiceType`, `ProblemDescription`, `PaymentDescription`, `RequestingDate`, `Payment`, `Status`) VALUES ( ?, ?, ?, ?, NULL, CURRENT_TIMESTAMP, NULL, 'Pending')";
+		var sql = "INSERT INTO requests  VALUES ( NULL,?, ?, ?, ?, NULL, CURRENT_TIMESTAMP, NULL, 'Pending')";
 		db.executeQuery(sql, [customerid,expertid,servicetype,problemdesc], function(result){
 			callback(result);
 		})

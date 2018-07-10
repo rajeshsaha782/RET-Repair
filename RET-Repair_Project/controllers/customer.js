@@ -4,8 +4,20 @@ var userModel = require.main.require('./models/user-model');
 
 router.get('/Dashboard_user', function(req, res){
 
-	res.render('customer/Dashboard_user');
-	//res.send('Hello');
+	var DashboardViewModel=new Object();
+	var userEmail=req.session.username;
+	
+	userModel.getByEmail(userEmail,function(result)
+				{
+				DashboardViewModel.userId=result.ID;
+				console.log(DashboardViewModel);
+					
+
+
+					res.render('customer/Dashboard_user', {DashboardViewModel});
+				});
+				
+				
 });
 
 router.get('/Change_password', function(req, res){
@@ -33,12 +45,11 @@ router.post('/Edit_profile/:id', function(req, res){
 
 	var id = req.params.id;
 	var name = req.body.name;
-	var type = req.body.type;
 	var address = req.body.address;
 	var phonenumber = req.body.phonenumber;
 
-	userModel.update(id,name,type,address,phonenumber, function(obj){
-
+	userModel.updateCustomer(id,name,address,phonenumber, function(obj){
+		console.log(name);
 		userModel.getById(id, function(obj){
 			res.render('customer/View_member',obj);
 		});
@@ -46,6 +57,15 @@ router.post('/Edit_profile/:id', function(req, res){
 	});
 	
 	//res.send('Hello');
+});
+
+router.get('/View_member/:id', function(req, res){
+
+	var id = req.params.id;
+	userModel.getById(id, function(obj){
+		res.render('customer/View_member',obj);
+	});
+
 });
 
 router.get('/index', function(req, res){

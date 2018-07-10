@@ -23,7 +23,7 @@ module.exports = {
 	},
 	
 	insertReview: function(customerid,expertid,desc, callback){
-		var sql = "INSERT INTO reviews (CustomerID, ExpertID, ReviewDescription) VALUES (?,?, ?)";
+		var sql = "INSERT INTO reviews  VALUES (NULL,?,?, ?)";
 		db.executeQuery(sql, [customerid,expertid,desc], function(result){
 			callback(result[0]);
 		});
