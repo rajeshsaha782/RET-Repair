@@ -192,182 +192,31 @@ tr{cursor:pointer}
       <p><br/></p>
 
       <div class="row text-center">
-
+		<% for(var i = 0; i < experts.length; i++){ %>
          <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
           <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
+            <img class="card-img-top rounded-circle" src="../../images/robi.jpg" alt="">
             <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
+              <h4 class="card-title"><%=experts[i].Name%></h4>
               <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
+              <p class="card-text" style="color:blue">Experience: since <%=experts[i].SignInDate%></p>
+              <p class="card-text"><%=experts[i].Address%></p>
               <p> 
+                      <% for(var i = 0; i < experts[i].Rating; i++){ %>
+					  <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
                       <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
                       <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
                       <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
                       <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
+                      <% } %>
                       
                     </p>  
             </div>
             
           </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
-
-         <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
-          <div class="">
-            <img class="card-img-top rounded-circle" src="images/robi.jpg" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Robi Ullah</h4>
-              <p class="card-text" style="color: green">All type of Skills </p>
-              <p class="card-text" style="color:blue">Experience: 3y</p>
-              <p class="card-text">Dhaka</p>
-              <p> 
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
-                      
-                      
-                    </p>  
-            </div>
-            
-          </div>
-        </div>
+<% } %>
+        
 
       </div>
 

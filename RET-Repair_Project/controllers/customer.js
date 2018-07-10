@@ -137,11 +137,54 @@ router.get('/navbar', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/request_details', function(req, res){
+router.get('/request_details/:type', function(req, res){
+	
+	var type=req.params.type;
+	
+	if(type=="tv")
+	{
+		req.session.ServiceType="Television Servicing";
+	}
+	else if(type=="ac")
+	{
+		req.session.ServiceType="AC Servicing";
+	}
+	else if(type=="freez")
+	{
+		req.session.ServiceType="Refrigerator Servicing";
+	}
+	else if(type=="pc")
+	{
+		req.session.ServiceType="Computer Servicing";
+	}
+	else if(type=="phn")
+	{
+		req.session.ServiceType="Phone Servicing";
+	}
+	else if(type=="other")
+	{
+		req.session.ServiceType="Others";
+	}
+	type=req.session.ServiceType;
+	console.log(type);
+	
 
-	res.render('customer/request_details');
+	res.render('customer/request_details',{type});
 	//res.send('Hello');
 });
+
+router.post('/request_details', function(req, res){
+	
+	var dis= req.body.district;
+	var thana= req.body.thana;
+	var description= req.body.description;
+	req.session.Address=thana+","+dis;
+	req.session.ProblemDescription=description;
+	
+	res.render('customer/request_server_filter_none');
+	//res.send('Hello');
+});
+
 
 router.get('/request_server_details', function(req, res){
 
@@ -163,7 +206,12 @@ router.get('/request_server_filter_nearest', function(req, res){
 
 router.get('/request_server_filter_none', function(req, res){
 
-	res.render('customer/request_server_filter_none');
+	userModel.getAllExperts(function(obj){
+		
+		console.log(obj);
+		
+		res.render('customer/request_server_filter_none',{experts:obj});
+	});
 	//res.send('Hello');
 });
 
