@@ -163,5 +163,15 @@ router.get('/View_member/:id', function(req, res){
 	//res.send('Hello');
 });
 
+router.get('/Delete/:id', function(req, res){
+
+	var id = req.params.id;
+	userModel.deleteById(id, function(obj){
+		res.redirect('../View_All_Members');
+	});
+
+	//res.send('Hello');
+});
+
 
 module.exports = router;
