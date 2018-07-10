@@ -50,8 +50,23 @@ module.exports =
 		});
 	},
 	
+	
 	getRequestById: function(id,callback){
 		var sql = "SELECT * FROM requests WHERE RequestID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+	
+	getRequestByIdwithExpert: function(id,callback){
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID and requests.RequestID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+	
+	getRequestByCustomerIdwithExpert: function(id,callback){
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID and requests.CustomerID=?";
 		db.executeQuery(sql, [id], function(result){
 			callback(result);
 		});

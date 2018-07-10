@@ -13,7 +13,7 @@ router.get('/Dashboard_user', function(req, res){
 				DashboardViewModel.userId=result.ID;
 				console.log(DashboardViewModel);
 				
-				requestModel.getRequestByCustomerId(DashboardViewModel.userId,function(result){
+				requestModel.getRequestByCustomerIdwithExpert(DashboardViewModel.userId,function(result){
 					DashboardViewModel.Requests=result;
 					
 					res.render('customer/Dashboard_user', {DashboardViewModel});
@@ -35,9 +35,32 @@ router.get('/Change_password', function(req, res){
 router.get('/Customer_request_status/:id', function(req, res){
 
 	var id=req.params.id;
-	requestModel.getRequestById(id, function(obj){
-		console.log(obj);
-		res.render('customer/Customer_request_status',obj);
+	requestModel.getRequestByIdwithExpert(id, function(obj){
+		console.log(obj[0]["ExpertID"]);
+		var object={
+			
+			  RequestID: obj[0]["RequestID"],
+			  CustomerID: obj[0]["CustomerID"],
+			  ExpertID: obj[0]["ExpertID"],
+			  ServiceType: obj[0]["ServiceType"],
+			  ProblemDescription: obj[0]["ProblemDescription"],
+			  PaymentDescription: obj[0]["PaymentDescription"],
+			  RequestingDate: obj[0]["RequestingDate"],
+			  Payment: obj[0]["Payment"],
+			  Status: obj[0]["Status"],
+			  ID: obj[0]["ID"],
+			  Name: obj[0]["Name"],
+			  Email: obj[0]["Email"],
+			  Password: obj[0]["Password"],
+			  Address: obj[0]["Address"],
+			  Type: obj[0]["Type"],
+			  PhoneNumber: obj[0]["PhoneNumber"],
+			  Rating: obj[0]["Rating"],
+			  MinimumPayment: obj[0]["MinimumPayment"],
+			  SignInDate: obj[0]["SignInDate"]
+		}
+			
+		res.render('customer/Customer_request_status',{object});
 	});
 	//res.send('Hello');
 });
