@@ -187,8 +187,7 @@ td {text-align:center}
 				<tr>
 					<td colspan="2">
 						  <img src="images/robi.jpg" style="width:12%" class="rounded-circle">
-						  <h2>Robi Ullah</h2>
-						  <p>Kuril Bisshawroad, Bashundhara,Dhaka</p>
+						  <h2><%= ExpertID %></h2>
 						  <br/>
 						  <br/>
 					</td>
@@ -202,7 +201,7 @@ td {text-align:center}
 					<br/>
 						<div class="card bg-light">
 						  <div class="card-body text-center">
-							<p class="card-text">Service Type: <img src="images/tv.png" style="width:5%" alt="Avatar" class="image"> <b>Television Servicing</b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="Pending" id="ConfirmButton"/></p>
+							<p class="card-text">Service Type: <img src="images/tv.png" style="width:5%" alt="Avatar" class="image"> <b><%=ServiceType %></b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="<%=Status %>" id="ConfirmButton"/></p>
 						  </div>
 						</div>
 						<br/>
@@ -212,17 +211,34 @@ td {text-align:center}
 					<td colspan="2">
 					<br/>
 						<b>Problem Description</b><br/><br/>
-						<i>Television keeps turning of automatically</i>
+						<i><%=ProblemDescription %></i>
 					</td>
 				</tr>
 				<tr class="p">
 					<td colspan="2" >
 					<br/>
 						<b>Payment Description</b><br/><br/>
-						<i>Port--200<br/>
-						screen--1000<br/>
-						service charge--200<br/>
-						Total--1400</i>
+						<i><%=PaymentDescription %></i>
+					</td>
+				</tr>
+				<tr class="r">
+					<td colspan="2" >
+					<br/>
+						<label>Rating</label>
+						<select>
+							<option>5</option>
+							<option>4</option>
+							<option>3</option>
+							<option>2</option>
+							<option>1</option>
+						</select>
+					</td>
+				</tr>
+				<tr class="r">
+					<td colspan="2" >
+					<br/>
+						<b>Review</b><br/><br/>
+						<textarea style="width:50%"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -298,26 +314,35 @@ td {text-align:center}
 </body>
 
 <script>
+$("tr.r").hide();
+$("tr.p").hide();
+
 if(document.getElementById("ConfirmButton").value=="Pending")
 {
 	$("#ConfirmButton1").addClass('hidden');
 	$("tr.p").hide();
-	
-	//when expert confirms request
-	setTimeout(func, 5000);
-	function func() {
-		document.getElementById("ConfirmButton").value="Confirmed";
-		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
-		setTimeout(func2, 5000);
-	}
-	function func2(){
-		$("#ConfirmButton1").removeClass('hidden');
-		$("tr.p").show();
-	}
-	
-	
+}
+
+if(document.getElementById("ConfirmButton").value=="Completed")
+{
+	$('#ConfirmButton').toggleClass('btn-outline-secondary btn-outline-success');
+	$("#ConfirmButton1").removeClass('hidden');
+	$("tr.r").show();
+	document.getElementById("ConfirmButton1").value="Give Review";
+	$("#cancelButton").addClass('hidden');
 	
 }
+
+if(document.getElementById("ConfirmButton").value=="Confirmed")
+{
+	$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+}
+
+if(PaymentDescription!=NULL)
+{
+	$("tr.p").show();
+}
+
 </script>
 
 <script>

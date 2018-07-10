@@ -9,6 +9,20 @@ module.exports =
 		});
 	},
 	
+	getRequestByCustomerId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE CustomerID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+	
+	getRequestById: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE RequestID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+	
 	addRequest: function(customerid,expertid,servicetype,problemdesc, callback){
 		var sql = "INSERT INTO requests  VALUES ( NULL,?, ?, ?, ?, NULL, CURRENT_TIMESTAMP, NULL, 'Pending')";
 		db.executeQuery(sql, [customerid,expertid,servicetype,problemdesc], function(result){

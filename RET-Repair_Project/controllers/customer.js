@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userModel = require.main.require('./models/user-model');
+var requestModel = require.main.require('./models/request-model');
 
 router.get('/Dashboard_user', function(req, res){
 
@@ -11,10 +12,15 @@ router.get('/Dashboard_user', function(req, res){
 				{
 				DashboardViewModel.userId=result.ID;
 				console.log(DashboardViewModel);
+				
+				requestModel.getRequestByCustomerId(DashboardViewModel.userId,function(result){
+					DashboardViewModel.Requests=result;
+					
+					res.render('customer/Dashboard_user', {DashboardViewModel});
+					});
 					
 
-
-					res.render('customer/Dashboard_user', {DashboardViewModel});
+					
 				});
 				
 				
@@ -26,9 +32,13 @@ router.get('/Change_password', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/Customer_request_status', function(req, res){
+router.get('/Customer_request_status/:id', function(req, res){
 
-	res.render('customer/Customer_request_status');
+	var id=req.params.id;
+	requestModel.getRequestById(id, function(obj){
+		console.log(obj);
+		res.render('customer/Customer_request_status',obj);
+	});
 	//res.send('Hello');
 });
 

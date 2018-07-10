@@ -243,7 +243,9 @@
 	  <div class="table-container" >
       <table class="table table-filter table-primary table-striped">
 		<tbody>
-			<tr style="cursor:pointer" onclick="window.location='Customer_request_status';">
+		
+		<% for(var i = 0; i < DashboardViewModel.Requests.length; i++){ %>
+			<tr style="cursor:pointer" onclick="window.location='Customer_request_status/<%=DashboardViewModel.Requests[i].RequestID %>';">
 				
 				<td width="75%">
 					<div class="media">
@@ -253,20 +255,21 @@
 						<div class="media-body" >
 							
 							<h4 class="title">
-								&nbsp Robi Ullah
+								&nbsp <%=DashboardViewModel.Requests[i].ExpertID %>
 								
 							</h4>
-							<p class="summary"> &nbsp  &nbsp Television Problem</p>
+							<p class="summary"> &nbsp  &nbsp  <%=DashboardViewModel.Requests[i].ProblemDescription %></p>
 						</div>
 					</div>
 				</td>
 				<td >
-					<button type="button"  style="cursor:default;"  class="btn btn-warning text-white"><b>Pending</b></button>
+					<button type="button"  style="cursor:default;"  class="btn btn-warning text-white"><b><%=DashboardViewModel.Requests[i].Status %></b></button>
 				</td>
 				<td width="20%">
-					<span class="media-meta pull-right text-secondary">February 14, 2018</span>
+					<span class="media-meta pull-right text-secondary"><%=DashboardViewModel.Requests[i].RequestingDate %></span>
 				</td>
 			</tr>
+			<% } %>
 		</tbody>
 	</table>
 	</div>
