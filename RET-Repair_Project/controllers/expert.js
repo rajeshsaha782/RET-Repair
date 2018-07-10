@@ -11,11 +11,42 @@ router.get('/Dashboard', function(req, res){
 	userModel.getByEmail(userEmail,function(result)
 	{
 		DashboardViewModel.userId=result.ID;
+		DashboardViewModel.userName=result.Name;
 		//console.log(DashboardViewModel);
 			
+		requestModel.getRequestByExpertId(DashboardViewModel.userId,function(result1)
+		{
+			DashboardViewModel.Services=result1;
+			//console.log(DashboardViewModel);
 
+			requestModel.getAllCompletedServiceByExpertId(DashboardViewModel.userId,function(result1)
+			{
+				DashboardViewModel.TotalCompletedServices=result1.length;
+				//console.log(DashboardViewModel);
 
-		res.render('expert/Dashboard', {DashboardViewModel});
+				requestModel.getAllCanceledServiceByExpertId(DashboardViewModel.userId,function(result1)
+				{
+					DashboardViewModel.TotalCancelsdServices=result1.length;
+					//console.log(DashboardViewModel);
+
+					requestModel.getAllPendingServiceByExpertId(DashboardViewModel.userId,function(result1)
+					{
+						DashboardViewModel.TotalPendingServices=result1.length;
+						//console.log(DashboardViewModel);
+
+						requestModel.getAllOnGoingServiceByExpertId(DashboardViewModel.userId,function(result1)
+						{
+							DashboardViewModel.TotalOnGoingServices=result1.length;
+							//console.log(DashboardViewModel);
+
+							res.render('expert/Dashboard',{DashboardViewModel});
+						});
+					});
+				});
+			});
+		});
+
+		
 	});
 				
 				
@@ -109,7 +140,17 @@ router.get('/navbar', function(req, res){
 
 router.get('/service_provider_requests', function(req, res){
 
-	res.render('expert/service_provider_requests');
+	var userEmail=req.session.username;
+		userModel.getByEmail(userEmail,function(user)
+		{
+				requestModel.getRequestByExpertId(user.ID,function(result)
+				{
+					console.log(result);
+							res.render('expert/service_provider_requests',{Services: result,userId:user.ID,userName:user.Name});
+				});
+				
+		});
+	
 	//res.send('Hello');
 });
 

@@ -163,7 +163,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="../#">Dashboard</a>
+          <a href="#">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
@@ -175,9 +175,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-comments"></i>
               </div>
-              <div class="mr-5">26 New Messages!</div>
+              <div class="mr-5"><%= DashboardViewModel.TotalOnGoingServices %> Services On Going</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="../#">
+            <a class="card-footer text-white clearfix small z-1" href="service_provider_requests">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -191,9 +191,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5">11 Services Completed</div>
+              <div class="mr-5"><%= DashboardViewModel.TotalPendingServices %> Services Pending</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="../#">
+            <a class="card-footer text-white clearfix small z-1" href="service_provider_requests">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -207,9 +207,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-shopping-cart"></i>
               </div>
-              <div class="mr-5">12 Reviews</div>
+              <div class="mr-5"><%= DashboardViewModel.TotalCompletedServices %> Services Completed</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="../#">
+            <a class="card-footer text-white clearfix small z-1" href="service_provider_requests">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -223,9 +223,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-support"></i>
               </div>
-              <div class="mr-5">13 Services Canceled</div>
+              <div class="mr-5"><%= DashboardViewModel.TotalCancelsdServices %> Services Canceled</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="../#">
+            <a class="card-footer text-white clearfix small z-1" href="service_provider_requests">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -238,30 +238,63 @@
 	  <div class="table-container" >
       <table class="table table-filter table-primary table-striped">
 		<tbody>
-			<tr style="cursor:pointer" onclick="window.location='Customer_request_status';">
-				
-				<td width="75%">
-					<div class="media">
-						<a href="../#" class="pull-left">
-							<img src="../images/robi.jpg" width="100px" class="media-photo rounded-circle">
-						</a>
-						<div class="media-body" >
-							
-							<h4 class="title">
-								&nbsp Robi Ullah
-								
-							</h4>
-							<p class="summary"> &nbsp  &nbsp Television Problem</p>
-						</div>
-					</div>
-				</td>
-				<td >
-					<button type="button"  style="cursor:default;"  class="btn btn-warning text-white"><b>Pending</b></button>
-				</td>
-				<td width="20%">
-					<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-				</td>
-			</tr>
+
+
+			  <% for(var i = 0; i < DashboardViewModel.Services.length; i++){ %>
+
+              <% if(DashboardViewModel.Services[i].Status!="Canceled" && DashboardViewModel.Services[i].Status!="Completed"){ %>
+                      <tr onclick="window.location='sevice_provider_user_request_details';">
+                        
+                        <td width="75%">
+                          <div class="media">
+                            <a href="../#" class="pull-left">
+                              <img src="../images/user_pic.png" width="100px" class="media-photo rounded-circle">
+                            </a>
+                            <div class="media-body" >
+                              
+                              <h4 class="title">
+                                &nbsp <%= DashboardViewModel.userName %>
+                                
+                              </h4>
+                              <p class="summary"> &nbsp  &nbsp <%= DashboardViewModel.Services[i].ServiceType %></p>
+                            </div>
+                          </div>
+                        </td>
+                        <td >
+
+                            <% if(DashboardViewModel.Services[i].Status=="Pending") { %>
+                            <button type="button" style="cursor:default;" class="btn btn-outline-warning"><%= DashboardViewModel.Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(DashboardViewModel.Services[i].Status=="Confirmed") { %>
+                            <button type="button"style="cursor:default;" class="btn btn-primary"><%= DashboardViewModel.Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(DashboardViewModel.Services[i].Status=="OnGoing") { %>
+                            <button type="button"style="cursor:default;" class="btn btn-warning"><%= DashboardViewModel.Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(DashboardViewModel.Services[i].Status=="Completed") { %>
+                            <button type="button" style="cursor:default;"class="btn btn-success"><%= DashboardViewModel.Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(DashboardViewModel.Services[i].Status=="Canceled" || DashboardViewModel.Services[i].Status=="Rejected") { %>
+                            <button type="button"style="cursor:default;" class="btn btn-danger"><%= DashboardViewModel.Services[i].Status %></button>
+                             <% } %>
+
+
+                      
+                        </td>
+                        <td width="20%">
+                          <span class="media-meta pull-right text-secondary"><%= DashboardViewModel.Services[i].RequestingDate %></span>
+                        </td>
+                      </tr>
+                <% } %>
+            <% } %>
+
+
+
+
 		</tbody>
 	</table>
 	</div>

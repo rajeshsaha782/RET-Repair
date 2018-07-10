@@ -43,8 +43,44 @@ module.exports =
 		});
 	},
 	
+
+	getAllCompletedServiceByExpertId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE ExpertID=? AND Status='Completed'";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
+	getAllCanceledServiceByExpertId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE ExpertID=? AND Status='Canceled'";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
+	getAllPendingServiceByExpertId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE ExpertID=? AND Status='Pending'";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
+	getAllOnGoingServiceByExpertId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE ExpertID=? AND Status='OnGoing'";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
 	getRequestByCustomerId: function(id,callback){
 		var sql = "SELECT * FROM requests WHERE CustomerID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
+	getRequestByExpertId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE ExpertID=?";
 		db.executeQuery(sql, [id], function(result){
 			callback(result);
 		});
@@ -59,14 +95,14 @@ module.exports =
 	},
 	
 	getRequestByIdwithExpert: function(id,callback){
-		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID and requests.RequestID=?";
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID AND requests.RequestID=?";
 		db.executeQuery(sql, [id], function(result){
 			callback(result);
 		});
 	},
 	
 	getRequestByCustomerIdwithExpert: function(id,callback){
-		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID and requests.CustomerID=?";
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID AND requests.CustomerID=?";
 		db.executeQuery(sql, [id], function(result){
 			callback(result);
 		});

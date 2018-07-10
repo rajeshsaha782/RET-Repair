@@ -42,7 +42,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="../Edit_profile">
+          <a class="nav-link" href="../Edit_profile/<%= userId%>">
             <i class="fa fa-fw fa-edit"></i>
             <span class="nav-link-text">Edit profile</span>
           </a>
@@ -183,122 +183,59 @@
 								<div class="table-container" >
 									<table class="table table-filter table-primary table-striped">
 										<tbody>
+
+                      <% for(var i = 0; i < Services.length; i++){ %>
+
+
 											<tr onclick="window.location='sevice_provider_user_request_details';">
 												
 												<td width="75%">
 													<div class="media">
 														<a href="../#" class="pull-left">
-															<img src="../images/robi.jpg" width="100px" class="media-photo rounded-circle">
+															<img src="../images/user_pic.png" width="100px" class="media-photo rounded-circle">
 														</a>
 														<div class="media-body" >
 															
 															<h4 class="title">
-																&nbsp Robi Ullah
+																&nbsp <%= userName %>
 																
 															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
+															<p class="summary"> &nbsp  &nbsp <%= Services[i].ServiceType %></p>
 														</div>
 													</div>
 												</td>
 												<td >
-													<button type="button"  style="cursor:default;"  class="btn btn-warning text-white"><b>Pending</b></button>
+
+                            <% if(Services[i].Status=="Pending") { %>
+                            <button type="button" style="cursor:default;" class="btn btn-outline-warning"><%= Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(Services[i].Status=="Confirmed") { %>
+                            <button type="button"style="cursor:default;" class="btn btn-primary"><%= Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(Services[i].Status=="OnGoing") { %>
+                            <button type="button"style="cursor:default;" class="btn btn-warning"><%= Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(Services[i].Status=="Completed") { %>
+                            <button type="button" style="cursor:default;"class="btn btn-success"><%= Services[i].Status %></button>
+                             <% } %>
+
+                             <% if(Services[i].Status=="Canceled" || Services[i].Status=="Rejected") { %>
+                            <button type="button"style="cursor:default;" class="btn btn-danger"><%= Services[i].Status %></button>
+                             <% } %>
+
+
+											
 												</td>
 												<td width="20%">
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
+													<span class="media-meta pull-right text-secondary"><%= Services[i].RequestingDate %></span>
 												</td>
 											</tr>
-											<tr onclick="window.location='sevice_provider_user_request_details';">
-												<td>
-													<div class="media">
-														<a href="../#" class="pull-left">
-															<img src="../images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-primary btn-filter text-white" ><b>Confirmed</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr  onclick="window.location='sevice_provider_user_request_details';">
-												<td>
-													<div class="media">
-														<a href="../#" class="pull-left">
-															<img src="../images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-danger btn-filter text-white" ><b>Canceled</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr onclick="window.location='sevice_provider_user_request_details';">
-												<td>
-													<div class="media">
-														<a href="../#" class="pull-left">
-															<img src="../images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-success btn-filter text-white" data-target="pagado"><b>Completed</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
-											<tr onclick="window.location='sevice_provider_user_request_details';">
-												<td>
-													<div class="media">
-														<a href="../#" class="pull-left">
-															<img src="../images/robi.jpg" width="100px" class="media-photo rounded-circle">
-														</a>
-														<div class="media-body" >
-															
-															<h4 class="title">
-																&nbsp Robi Ullah
-																
-															</h4>
-															<p class="summary"> &nbsp  &nbsp Television Problem</p>
-														</div>
-													</div>
-												</td>
-												<td>
-													<button type="button" style="cursor:default;" class="btn btn-secondary btn-filter text-white" data-target="pagado"><b>On Going</b></button>
-												</td>
-												<td>
-													<span class="media-meta pull-right text-secondary">February 14, 2018</span>
-												</td>
-											</tr>
+
+											<% } %>
+
 										</tbody>
 									</table>
 								</div>
