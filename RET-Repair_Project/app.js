@@ -25,7 +25,7 @@ app.use(expressSession({secret: 'my top secret pass', saveUninitialized: true, r
 
 
 app.use('*', function(req, res, next){
-	if(req.originalUrl == '/home' || req.originalUrl == '/register'|| req.originalUrl == '/logout' )
+	if(req.originalUrl == '/home' || req.originalUrl == '/register'|| req.originalUrl == '/register/forgot-password' || req.originalUrl == '/logout' )
 	{
 		next();
 	}
@@ -49,6 +49,7 @@ app.use('/admin', admin);
 app.use('/customer', customer);
 app.use('/expert', expert);
 app.use('/logout', logout);
+
 
 
 app.get('/', function(req, res){

@@ -25,4 +25,11 @@ router.post('/', function(req, res){
 
 });
 
+
+
+router.get('/forgot-password', function(req, res){
+	res.render('forgot-password');
+	//res.send('Hello');
+});
+
 module.exports = router;
