@@ -3,7 +3,41 @@ module.exports =
 {
 
 	getAllCancelService: function(callback){
-		var sql = "SELECT * FROM requests WHERE Status='Cancel'";
+		var sql = "SELECT * FROM requests WHERE Status='Canceled'";
+		db.executeQuery(sql, null, function(result){
+			callback(result);
+		});
+	},
+
+	getAllPendingService: function(callback){
+		var sql = "SELECT * FROM requests WHERE Status='Pending'";
+		db.executeQuery(sql, null, function(result){
+			callback(result);
+		});
+	},
+
+	getAllConfirmedService: function(callback){
+		var sql = "SELECT * FROM requests WHERE Status='Confirmed'";
+		db.executeQuery(sql, null, function(result){
+			callback(result);
+		});
+	},
+
+	getAllOnGoingService: function(callback){
+		var sql = "SELECT * FROM requests WHERE Status='OnGoing'";
+		db.executeQuery(sql, null, function(result){
+			callback(result);
+		});
+	},
+	getAllCompletedService: function(callback){
+		var sql = "SELECT * FROM requests WHERE Status='Completed'";
+		db.executeQuery(sql, null, function(result){
+			callback(result);
+		});
+	},
+
+	getAllService: function(callback){
+		var sql = "SELECT * FROM requests";
 		db.executeQuery(sql, null, function(result){
 			callback(result);
 		});
@@ -80,7 +114,7 @@ module.exports =
 	},
 	
 	countOnGoingRequest: function(callback){
-		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'On Going'";
+		var sql = "SELECT COUNT(RequestID) FROM requests WHERE Status LIKE 'OnGoing'";
 		db.executeQuery(sql,null, function(result){
 			callback(result);
 		})

@@ -106,6 +106,7 @@
                 <tr>
                   <th>Service type</th>
                   <th>Expart</th>
+                  <th>Customer</th>
                   <th>Date</th>
                   <th>Status</th>
                 </tr>
@@ -113,32 +114,44 @@
               
               <tbody>
 
+                <% for(var i = 0; i < Services.length; i++){ %>
                 <tr>
-                  <td>AC</td>
-                  <td>Rajesh</td>
-                  <td>1/2/18</td>
-                  <td><button type="button" class="btn btn-primary">On Going</button></td>
+                  <td><%= Services[i].ServiceTypw %></td>
+                  <td><%= Services[i].CustomerID %></td>
+                   <td><%= Services[i].ExpertID %></td>
+                  <td><%= Services[i].RequestingDate %></td>
+                  <td>
+
+                     <% if(Services[i].Status=="Pending") { %>
+                    <button type="button" class="btn btn-outline-warning"><%= Services[i].Status %></button>
+                     <% } %>
+
+                     <% if(Services[i].Status=="Confirmed") { %>
+                    <button type="button" class="btn btn-primary"><%= Services[i].Status %></button>
+                     <% } %>
+
+                     <% if(Services[i].Status=="OnGoing") { %>
+                    <button type="button" class="btn btn-warning"><%= Services[i].Status %></button>
+                     <% } %>
+
+                     <% if(Services[i].Status=="Completed") { %>
+                    <button type="button" class="btn btn-success"><%= Services[i].Status %></button>
+                     <% } %>
+
+                     <% if(Services[i].Status=="Canceled" || Services[i].Status=="Rejected") { %>
+                    <button type="button" class="btn btn-danger"><%= Services[i].Status %></button>
+                     <% } %>
+                  </td>
                   
                 </tr>
-                <tr>
-                  <td>AC</td>
-                  <td>Rajesh</td>
-                  <td>1/2/18</td>
-                  <td><button type="button" class="btn btn-danger">Canceled</button></td>
-                </tr>
-                <tr>
-                  <td>AC</td>
-                  <td>Rajesh</td>
-                  <td>1/2/18</td>
-                  <td><button type="button" class="btn btn-success">Completed</button></td>
-                </tr>
+               <% } %>
               
                 
               </tbody>
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        <div class="card-footer small text-muted">Total Service: <%= Services.length %></div>
       </div>
         </div>
       </div>

@@ -167,11 +167,11 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
   ['Task', 'Count'],
-  ['Cofirmed', 9],
-  ['Canceled', 2],
-  ['Pending', 4],
-  ['Completed', 2],
-  ['On Going', 8]
+  ['Cofirmed', <%= DashboardViewModel.TotalConfirmedService %>],
+  ['Canceled', <%= DashboardViewModel.TotalCancelService %>],
+  ['Pending', <%= DashboardViewModel.TotalPendingService %>],
+  ['Completed', <%= DashboardViewModel.TotalCompletedService %>],
+  ['OnGoing', <%= DashboardViewModel.TotalOnGoingService %>]
 ]);
 
   // Optional; add a title and set the width and height of the chart

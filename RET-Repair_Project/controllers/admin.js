@@ -36,7 +36,39 @@ router.get('/dashboard', function(req, res){
 					
 
 
-					res.render('admin/Dashboard', {DashboardViewModel});
+					requestModel.getAllPendingService(function(result)
+					{
+						DashboardViewModel.TotalPendingService=result.length;
+					//console.log(result);
+						
+
+
+						requestModel.getAllConfirmedService(function(result)
+						{
+							DashboardViewModel.TotalConfirmedService=result.length;
+						//console.log(result);
+							
+
+
+							requestModel.getAllOnGoingService(function(result)
+							{
+								DashboardViewModel.TotalOnGoingService=result.length;
+							//console.log(result);
+								
+
+
+								requestModel.getAllCompletedService(function(result)
+								{
+									DashboardViewModel.TotalCompletedService=result.length;
+								//console.log(result);
+									
+
+
+									res.render('admin/Dashboard', {DashboardViewModel});
+								});
+							});
+						});
+					});
 				});
 			});
 		
@@ -48,13 +80,13 @@ router.get('/dashboard', function(req, res){
 
 	
 	
-	//res.send('Hello');
+	
 });
 
 
 router.get('/Add_member', function(req, res){
 	res.render('admin/Add_member');
-	//res.send('Hello');
+	
 });
 router.post('/Add_member', function(req, res){
 
@@ -75,13 +107,13 @@ router.post('/Add_member', function(req, res){
 
 
 	// res.render('admin/Add_member');
-	//res.send('Hello');
+	
 });
 
 
 router.get('/Change_password', function(req, res){
 	res.render('admin/Change_password');
-	//res.send('Hello');
+	
 });
 router.post('/Change_password', function(req, res){
 
@@ -99,7 +131,7 @@ router.post('/Change_password', function(req, res){
 		});
 	});
 
-	//res.send('Hello');
+	
 });
 
 router.get('/Edit_profile/:id', function(req, res){
@@ -109,7 +141,7 @@ router.get('/Edit_profile/:id', function(req, res){
 		res.render('admin/Edit_profile',obj);
 	});
 	
-	//res.send('Hello');
+	
 });
 router.post('/Edit_profile/:id', function(req, res){
 
@@ -127,19 +159,23 @@ router.post('/Edit_profile/:id', function(req, res){
 		
 	});
 	
-	//res.send('Hello');
+	
 });
 
 
 router.get('/navbar', function(req, res){
 	res.render('admin/navbar');
-	//res.send('Hello');
+	
 });
 
 
 router.get('/Services', function(req, res){
-	res.render('admin/Services');
-	//res.send('Hello');
+
+	requestModel.getAllService(function(result){
+		res.render('admin/Services', {Services: result});
+	});
+
+	
 });
 
 
@@ -149,7 +185,7 @@ router.get('/View_All_Members', function(req, res){
 		res.render('admin/View_All_Members', {Users: result});
 	});
 	
-	//res.send('Hello');
+	
 });
 
 
@@ -160,7 +196,7 @@ router.get('/View_member/:id', function(req, res){
 		res.render('admin/View_member',obj);
 	});
 
-	//res.send('Hello');
+	
 });
 
 router.get('/Delete/:id', function(req, res){
@@ -170,7 +206,7 @@ router.get('/Delete/:id', function(req, res){
 		res.redirect('../View_All_Members');
 	});
 
-	//res.send('Hello');
+	
 });
 
 
