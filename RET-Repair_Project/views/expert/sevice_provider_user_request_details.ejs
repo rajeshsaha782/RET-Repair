@@ -178,7 +178,7 @@ td {text-align:center}
 		<table width="70%" class="center" style="margin: 0px auto;">
 				<tr>
 					<td colspan="2">
-						  <img src="../../images/robi.jpg" style="width:12%" class="rounded-circle">
+						  <img src="../../images/user_pic.png" style="width:12%" class="rounded-circle">
 						  <h2><%=CustomerRequestInfo[0].Name%></h2>
 						  <p><%=CustomerRequestInfo[0].Address%></p>
 						  <br/>
@@ -224,23 +224,23 @@ td {text-align:center}
 
 
             <% if(CustomerRequestInfo[0].Status=="Pending") { %>
-              <button type="button" style="cursor:default;" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button" style="cursor:default;" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="Confirmed") { %>
-              <button type="button"style="cursor:default;" class="btn btn-primary"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button"style="cursor:default;" class="btn btn-outline-primary"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="OnGoing") { %>
-              <button type="button"style="cursor:default;" class="btn btn-warning"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button"style="cursor:default;" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="Completed") { %>
-              <button type="button" style="cursor:default;"class="btn btn-success"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button" style="cursor:default;"class="btn btn-outline-success"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="Canceled" || CustomerRequestInfo[0].Status=="Rejected") { %>
-              <button type="button"style="cursor:default;" class="btn btn-danger"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button"style="cursor:default;" class="btn btn-outline-danger"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
 
@@ -411,6 +411,14 @@ td {text-align:center}
 </body>
 
 <script>
+
+  if(document.getElementById("ConfirmButton").value=="Confirmed")
+    {
+      alert("jbdv");
+      document.getElementById("ConfirmButton1").value="Billing Proccess";
+      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+      
+    }
 function change()
 {
     document.getElementById("myButton1").value="<%=CustomerRequestInfo[0].PhoneNumber%>"; 
@@ -419,12 +427,12 @@ function change()
 function change2()
 {
     if(document.getElementById("ConfirmButton").value=="Pending")
-	{
-		document.getElementById("ConfirmButton").value="Confirmed"; 
-		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
-		document.getElementById("ConfirmButton1").value="Billing Proccess";
-		
-	}
+  	{
+  		document.getElementById("ConfirmButton").value="Confirmed"; 
+  		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+  		document.getElementById("ConfirmButton1").value="Billing Proccess";
+  		
+  	}
 	else
 	{
 		document.getElementById("ConfirmButton1").setAttribute("data-target", "#billModal");
@@ -452,6 +460,14 @@ $("#confirmModal").on("hidden.bs.modal", function () {
 </script>
 
 <script>
+
+  if(document.getElementById("ConfirmButton").value=="Confirmed")
+    {
+      alert("jbdv");
+      document.getElementById("ConfirmButton1").value="Billing Proccess";
+      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+      
+    }
 if (sessionStorage.getItem("navbar")== "true") 
 {
 	$('nav').toggleClass('navbar-dark navbar-light');
