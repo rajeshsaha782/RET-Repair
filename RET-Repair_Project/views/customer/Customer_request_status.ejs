@@ -186,7 +186,7 @@ td {text-align:center}
 		<table width="70%" class="center" style="margin: 0px auto;">
 				<tr>
 					<td colspan="2">
-						  <img src="../images/user_pic.png" style="width:12%" class="rounded-circle">
+						  <img src="../../images/user_pic.png" style="width:12%" class="rounded-circle">
 						  <h2><%= object.Name %></h2>
 						  <p><%= object.Address %></p>
 						  <br/>
@@ -202,7 +202,7 @@ td {text-align:center}
 					<br/>
 						<div class="card bg-light">
 						  <div class="card-body text-center">
-							<p class="card-text">Service Type: <img src="../images/tv.png" style="width:5%" alt="Avatar" class="image"> <b><%=object.ServiceType %></b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="<%=object.Status %>" id="ConfirmButton"/></p>
+							<p class="card-text">Service Type: <img src="../../images/tv.png" style="width:5%" alt="Avatar" class="image"> <b><%=object.ServiceType %></b> <input type="button" class="btn btn-outline-warning " style="cursor:default" value="<%=object.Status %>" id="ConfirmButton"/></p>
 						  </div>
 						</div>
 						<br/>
@@ -374,13 +374,7 @@ function change2()
 
 function change3()
 {
-    if(document.getElementById("ConfirmButton").value!="Canceled")
-	{
-		document.getElementById("ConfirmButton").value="Canceled"; 
-		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-danger');cancelButton
-		$("#ConfirmButton1").addClass('hidden');
-		$("#cancelButton").addClass('hidden');
-	}
+    window.location = '../cancelRequest/<%=object.RequestID %>';
 }
 
 $("#confirmModal").on("hidden.bs.modal", function () {

@@ -172,7 +172,7 @@ module.exports =
 		})
 	},
 	
-	paymentRequest: function(paymentdesc,payment,id, callback){
+	billingProcess: function(paymentdesc,payment,id, callback){
 		var sql = "UPDATE requests SET PaymentDescription = ?, Payment= ? WHERE RequestID = ?";
 		db.executeQuery(sql, [paymentdesc,payment,id], function(result){
 			callback(result);

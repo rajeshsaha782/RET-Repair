@@ -290,6 +290,17 @@ router.get('/addRequest/:id', function(req, res){
 	//res.send('Hello');
 });
 
+router.get('/cancelRequest/:id', function(req, res){
+
+var id=req.params.id;
+	requestModel.cancelRequest(id,function(obj){
+		
+		res.redirect('../Dashboard_user');
+	});
+
+	//res.send('Hello');
+});
+
 router.get('/request_server_filter_nearest', function(req, res){
 
 	res.render('customer/request_server_filter_nearest');

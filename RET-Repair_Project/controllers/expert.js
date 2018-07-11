@@ -176,4 +176,26 @@ var RequestId = req.params.RequestId;
 
 });
 
+router.get('/confirmRequest/:id', function(req, res){
+
+	var id=req.params.id;
+	requestModel.confirmRequest(id,function(obj){
+		
+		res.redirect("../sevice_provider_user_request_details/"+id);
+	});
+	//res.send('Hello');
+});
+
+router.post('/billingProcess/:id', function(req, res){
+
+	var id=req.params.id;
+	var paymentdesc=req.body.billComponents;
+	var totalcost=req.body.totalprice;
+	requestModel.billingProcess(paymentdesc,totalcost,id,function(obj){
+		
+		res.redirect("../sevice_provider_user_request_details/"+id);
+	});
+	//res.send('Hello');
+});
+
 module.exports = router;

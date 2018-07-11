@@ -224,23 +224,23 @@ td {text-align:center}
 
 
             <% if(CustomerRequestInfo[0].Status=="Pending") { %>
-              <button id="ConfirmButton" type="button" style="cursor:default;" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button" style="cursor:default;" value="<%= CustomerRequestInfo[0].Status %>" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="Confirmed") { %>
-              <button id="ConfirmButton" type="button"style="cursor:default;" class="btn btn-outline-primary"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button"style="cursor:default;" value="<%= CustomerRequestInfo[0].Status %>" class="btn btn-outline-primary"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="OnGoing") { %>
-              <button id="ConfirmButton" type="button"style="cursor:default;" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button"style="cursor:default;" value="<%= CustomerRequestInfo[0].Status %>" class="btn btn-outline-warning"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="Completed") { %>
-              <button id="ConfirmButton" type="button" style="cursor:default;"class="btn btn-outline-success"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button" style="cursor:default;" value="<%= CustomerRequestInfo[0].Status %>" class="btn btn-outline-success"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
                <% if(CustomerRequestInfo[0].Status=="Canceled" || CustomerRequestInfo[0].Status=="Rejected") { %>
-              <button id="ConfirmButton" type="button"style="cursor:default;" class="btn btn-outline-danger"><%= CustomerRequestInfo[0].Status %></button>
+              <button id="ConfirmButton" type="button"style="cursor:default;" value="<%= CustomerRequestInfo[0].Status %>" class="btn btn-outline-danger"><%= CustomerRequestInfo[0].Status %></button>
                <% } %>
 
 
@@ -347,10 +347,11 @@ td {text-align:center}
             </button>
           </div>
           <div class="modal-body">
+            <form method="post" action='../billingProcess/<%=CustomerRequestInfo[0].RequestID%>'>
 			<table width="100%">
 				<tr>
 					<td>To:<br/><br/><br/></td>
-					<td ><button type="submit" class="btn float-left" style="cursor:default;">Robi Ullah</button><br/><br/><br/></td>
+					<td ><button type="submit" class="btn float-left" style="cursor:default;"><%=CustomerRequestInfo[0].Name%></button><br/><br/><br/></td>
 				</tr>
 				<tr>
 					<td>Components:</td>
@@ -365,10 +366,11 @@ td {text-align:center}
 		  </div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-primary" onclick="" data-dismiss="modal" data-toggle="modal" data-target="#successfulModal">Send</button>
+            <button class="btn btn-primary" type="submit"  >Send</button>
           </div>
         </div>
       </div>
+    </form>
     </div>
 	<!-- Successful Modal-->
     <div class="modal fade" id="successfulModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -412,11 +414,29 @@ td {text-align:center}
 
 <script>
 
+  if(document.getElementById("ConfirmButton").value=="Pending")
+    {
+      document.getElementById("ConfirmButton1").value="Confirmed";
+      
+    }
+
   if(document.getElementById("ConfirmButton").value=="Confirmed")
     {
-      alert("jbdv");
       document.getElementById("ConfirmButton1").value="Billing Proccess";
-      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
+      
+    }
+
+    if(document.getElementById("ConfirmButton").value=="OnGoing")
+    {
+      document.getElementById("ConfirmButton1").value="Complete";
+      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-success');
+      
+    }
+
+    if(document.getElementById("ConfirmButton").value=="Canceled")
+    {
+      $("#ConfirmButton1").addClass('hidden');
+    $("#cancelButton").addClass('hidden');
       
     }
 function change()
@@ -428,9 +448,7 @@ function change2()
 {
     if(document.getElementById("ConfirmButton").value=="Pending")
   	{
-  		document.getElementById("ConfirmButton").value="Confirmed"; 
-  		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
-  		document.getElementById("ConfirmButton1").value="Billing Proccess";
+  		window.location='../confirmRequest/<%=CustomerRequestInfo[0].RequestID%>';
   		
   	}
 	else
@@ -461,13 +479,7 @@ $("#confirmModal").on("hidden.bs.modal", function () {
 
 <script>
 
-  if(document.getElementById("ConfirmButton").value=="Confirmed")
-    {
-      alert("jbdv");
-      document.getElementById("ConfirmButton1").value="Billing Proccess";
-      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-primary');
-      
-    }
+  
 if (sessionStorage.getItem("navbar")== "true") 
 {
 	$('nav').toggleClass('navbar-dark navbar-light');

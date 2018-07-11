@@ -244,7 +244,8 @@
       <table class="table table-filter table-primary table-striped">
 		<tbody>
 		
-		<% for(var i = 0; i < DashboardViewModel.Requests.length; i++){ %>
+		<% for(var i = 0; i < DashboardViewModel.Requests.length ; i++){ %>
+    <% if(DashboardViewModel.Requests[i].Status!="Canceled"){%>
 			<tr style="cursor:pointer" onclick="window.location='Customer_request_status/<%=DashboardViewModel.Requests[i].RequestID %>';">
 				
 				<td width="75%">
@@ -262,14 +263,35 @@
 						</div>
 					</div>
 				</td>
+        <% if(DashboardViewModel.Requests[i].Status=="Pending"){%>
 				<td >
 					<button type="button"  style="cursor:default;"  class="btn btn-warning text-white"><b><%=DashboardViewModel.Requests[i].Status %></b></button>
 				</td>
+        <%}%>
+
+        <% if(DashboardViewModel.Requests[i].Status=="OnGoing"){%>
+        <td >
+          <button type="button"  style="cursor:default;"  class="btn btn-secondary text-white"><b><%=DashboardViewModel.Requests[i].Status %></b></button>
+        </td>
+        <%}%>
+
+        <% if(DashboardViewModel.Requests[i].Status=="Confirmed"){%>
+        <td >
+          <button type="button"  style="cursor:default;"  class="btn btn-primary text-white"><b><%=DashboardViewModel.Requests[i].Status %></b></button>
+        </td>
+        <%}%>
+
+        <% if(DashboardViewModel.Requests[i].Status=="Completed"){%>
+        <td >
+          <button type="button"  style="cursor:default;"  class="btn btn-success text-white"><b><%=DashboardViewModel.Requests[i].Status %></b></button>
+        </td>
+        <%}%>
+
 				<td width="20%">
 					<span class="media-meta pull-right text-secondary"><%=DashboardViewModel.Requests[i].RequestingDate %></span>
 				</td>
 			</tr>
-			<% } %>
+			<%} } %>
 		</tbody>
 	</table>
 	</div>
