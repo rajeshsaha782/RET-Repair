@@ -282,7 +282,7 @@ router.get('/addRequest/:id', function(req, res){
 
 		requestModel.addRequest(CustomerID,ExpertID,ServiceType,ProblemDesc,function(obj){
 		
-			res.redirect('../../Dashboard_user');
+			res.redirect('../Dashboard_user');
 		});
 	});
 
