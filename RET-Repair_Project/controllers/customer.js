@@ -8,15 +8,25 @@ router.get('/Dashboard_user', function(req, res){
 	var DashboardViewModel=new Object();
 	var userEmail=req.session.username;
 	
-	userModel.getByEmail(userEmail,function(result)
+	userModel.getByEmail(userEmail,function(result1)
 				{
-				DashboardViewModel.userId=result.ID;
-				console.log(DashboardViewModel);
+				DashboardViewModel.userId=result1.ID;
 				
-				requestModel.getRequestByCustomerIdwithExpert(DashboardViewModel.userId,function(result){
-					DashboardViewModel.Requests=result;
+				requestModel.getRequestByCustomerIdwithExpert(DashboardViewModel.userId,function(result2){
+					DashboardViewModel.Requests=result2;
 					
-					res.render('customer/Dashboard_user', {DashboardViewModel});
+					requestModel.getCanceledRequestByCustomerId(DashboardViewModel.userId,function(result3){
+						DashboardViewModel.CanceledRequests=result3;
+						
+						requestModel.getCompletedRequestByCustomerId(DashboardViewModel.userId,function(result4){
+							DashboardViewModel.CompletedRequests=result4;
+							
+							res.render('customer/Dashboard_user', {DashboardViewModel});
+						});
+						
+					});
+					
+					
 					});
 					
 
@@ -28,7 +38,12 @@ router.get('/Dashboard_user', function(req, res){
 
 router.get('/Change_password', function(req, res){
 
-	res.render('customer/Change_password');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('customer/Change_password',{userId:result.ID});
+	});
+	
 	//res.send('Hello');
 });
 
@@ -36,13 +51,14 @@ router.post('/Change_password', function(req, res){
 
 	var userEmail=req.session.username;
 	var pass=req.body.newPass;
+	console.log(pass);
 		userModel.getByEmail(userEmail,function(user)
 		{
 				console.log(user);
 				userModel.updatePassword(pass,user.ID,function(result)
 				{
 					console.log(result);
-					res.render('customer/View_member',result);
+					res.render('customer/Change_password');
 				});
 				
 		});
@@ -121,25 +137,46 @@ router.get('/View_member/:id', function(req, res){
 
 router.get('/index', function(req, res){
 
-	res.render('customer/index');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('customer/index',{userId:result.ID});
+	});
+	
 	//res.send('Hello');
 });
 
 router.get('/message', function(req, res){
 
-	res.render('customer/message');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('customer/message',{userId:result.ID});
+	});
+	
 	//res.send('Hello');
 });
 
 router.get('/messages_filter_none', function(req, res){
 
-	res.render('customer/messages_filter_none');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('customer/messages_filter_none',{userId:result.ID});
+	});
+	
 	//res.send('Hello');
 });
 
 router.get('/messages_filter_unseen', function(req, res){
 
-	res.render('customer/messages_filter_unseen');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('customer/messages_filter_unseen',{userId:result.ID});
+	});
+	
+	
 	//res.send('Hello');
 });
 
@@ -151,7 +188,12 @@ router.get('/my_reviews', function(req, res){
 
 router.get('/navbar', function(req, res){
 
-	res.render('customer/navbar');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			res.render('customer/navbar',{userId:result.ID});
+	});
+	
 	//res.send('Hello');
 });
 
@@ -247,7 +289,7 @@ router.get('/Service_received/:id/:code', function(req, res){
 		
 		console.log(code);
 		
-		res.render('customer/Service_received',{experts:obj,code});
+		res.render('customer/Service_received',{experts:obj,code,userId:id});
 	});
 	//res.send('Hello');
 });

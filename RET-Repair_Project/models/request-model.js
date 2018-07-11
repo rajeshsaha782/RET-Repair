@@ -78,6 +78,20 @@ module.exports =
 			callback(result);
 		});
 	},
+	
+	getCanceledRequestByCustomerId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE CustomerID=? AND Status='Canceled'";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+	
+	getCompletedRequestByCustomerId: function(id,callback){
+		var sql = "SELECT * FROM requests WHERE CustomerID=? AND Status='Completed'";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
 
 	getRequestByExpertId: function(id,callback){
 		var sql = "SELECT * FROM requests WHERE ExpertID=?";
