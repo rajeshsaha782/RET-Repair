@@ -193,7 +193,7 @@ tr{cursor:pointer}
 
       <div class="row text-center">
 		<% for(var i = 0; i < experts.length; i++){ %>
-         <div class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details';">
+         <div style="cursor: pointer;" class="col-lg-3 col-md-6 mb-4" onclick="window.location='request_server_details/<%=experts[i].ID%>';">
           <div class="">
             <img class="card-img-top rounded-circle" src="../../images/robi.jpg" alt="">
             <div class="card-body">
@@ -202,7 +202,7 @@ tr{cursor:pointer}
               <p class="card-text" style="color:blue">Experience: since <%=experts[i].SignInDate%></p>
               <p class="card-text"><%=experts[i].Address%></p>
               <p> 
-                      <% for(var i = 0; i < experts[i].Rating; i++){ %>
+                      <% for(var i = 0; i < 5; i++){ %>
 					             <i class="fa fa-star" style="font-size: 20px;color:#FFDF00"></i>
                       <% } %>
                       

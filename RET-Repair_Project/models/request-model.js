@@ -51,6 +51,13 @@ module.exports =
 		});
 	},
 
+	getAllCompletedServiceByExpertIdWithExpertValues: function(id,callback){
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID AND requests.ExpertID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
 	getAllCanceledServiceByExpertId: function(id,callback){
 		var sql = "SELECT * FROM requests WHERE ExpertID=? AND Status='Canceled'";
 		db.executeQuery(sql, [id], function(result){

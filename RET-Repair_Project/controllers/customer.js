@@ -203,23 +203,23 @@ router.get('/request_details/:type', function(req, res){
 	
 	if(type=="tv")
 	{
-		req.session.ServiceType="Television Servicing";
+		req.session.ServiceType="Television";
 	}
 	else if(type=="ac")
 	{
-		req.session.ServiceType="AC Servicing";
+		req.session.ServiceType="AC";
 	}
 	else if(type=="freez")
 	{
-		req.session.ServiceType="Refrigerator Servicing";
+		req.session.ServiceType="Refrigerator";
 	}
 	else if(type=="pc")
 	{
-		req.session.ServiceType="Computer Servicing";
+		req.session.ServiceType="Computer";
 	}
 	else if(type=="phn")
 	{
-		req.session.ServiceType="Phone Servicing";
+		req.session.ServiceType="Phone";
 	}
 	else if(type=="other")
 	{
@@ -251,15 +251,42 @@ router.post('/request_details', function(req, res){
 });
 
 
-router.get('/request_server_details', function(req, res){
+router.get('/request_server_details/:id', function(req, res){
 
-	res.render('customer/request_server_details');
+	var id=req.params.id;
+	requestModel.getAllCompletedServiceByExpertIdWithExpertValues(id,function(obj){
+		
+		console.log(obj);
+		
+		res.render('customer/request_server_details',{expert:obj});
+	});
+
 	//res.send('Hello');
 });
 
 router.get('/request_server_filter_both', function(req, res){
 
 	res.render('customer/request_server_filter_both');
+	//res.send('Hello');
+});
+
+router.get('/addRequest/:id', function(req, res){
+
+	var ExpertID=req.params.id;
+	var Address=req.session.Address;
+	var ProblemDesc=req.session.ProblemDescription ;
+	var ServiceType=req.session.ServiceType;
+	userModel.getByEmail(req.session.username,function(obj){
+		
+		var CustomerID=obj.ID;
+
+		requestModel.addRequest(CustomerID,ExpertID,ServiceType,ProblemDesc,function(obj){
+		
+			res.redirect('../../Dashboard_user');
+		});
+	});
+
+	
 	//res.send('Hello');
 });
 
