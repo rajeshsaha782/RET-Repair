@@ -23,7 +23,7 @@ router.post('/', function(req, res){
 				}
 				else if(user.Type=="Customer")
 				{
-					res.redirect('/customer/Dashboard_user');
+					res.redirect('/customer/index');
 				}
 				else if(user.Type=="Expert")
 				{
