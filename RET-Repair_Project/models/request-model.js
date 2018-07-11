@@ -114,9 +114,24 @@ module.exports =
 			callback(result);
 		});
 	},
+
+	getRequestByIdwithCustomer: function(id,callback){
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.CustomerID=users.ID AND requests.RequestID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+	
 	
 	getRequestByCustomerIdwithExpert: function(id,callback){
 		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.ExpertID=users.ID AND requests.CustomerID=?";
+		db.executeQuery(sql, [id], function(result){
+			callback(result);
+		});
+	},
+
+	getRequestByExpertIdwithCustomer: function(id,callback){
+		var sql = "SELECT *  FROM requests CROSS JOIN users WHERE requests.CustomerID=users.ID AND requests.ExpertID=?";
 		db.executeQuery(sql, [id], function(result){
 			callback(result);
 		});

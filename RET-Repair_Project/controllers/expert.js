@@ -14,7 +14,7 @@ router.get('/Dashboard', function(req, res){
 		DashboardViewModel.userName=result.Name;
 		//console.log(DashboardViewModel);
 			
-		requestModel.getRequestByExpertId(DashboardViewModel.userId,function(result1)
+		requestModel.getRequestByExpertIdwithCustomer(DashboardViewModel.userId,function(result1)
 		{
 			DashboardViewModel.Services=result1;
 			//console.log(DashboardViewModel);
@@ -143,7 +143,7 @@ router.get('/service_provider_requests', function(req, res){
 	var userEmail=req.session.username;
 		userModel.getByEmail(userEmail,function(user)
 		{
-				requestModel.getRequestByExpertId(user.ID,function(result)
+				requestModel.getRequestByExpertIdwithCustomer(user.ID,function(result)
 				{
 					console.log(result);
 							res.render('expert/service_provider_requests',{Services: result,userId:user.ID,userName:user.Name});
@@ -154,14 +154,22 @@ router.get('/service_provider_requests', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/sevice_provider_user_request_details', function(req, res){
+router.get('/sevice_provider_user_request_details/:RequestId', function(req, res){
 
 
 var userEmail=req.session.username;
+var RequestId = req.params.RequestId;
 		userModel.getByEmail(userEmail,function(user)
 		{
 				//console.log(result);
-				res.render('expert/sevice_provider_user_request_details',{userId:user.ID});
+
+				requestModel.getRequestByIdwithCustomer(RequestId,function(result)
+				{
+					console.log(result);
+
+					res.render('expert/sevice_provider_user_request_details',{CustomerRequestInfo:result,userId:user.ID});
+				});
+				
 
 		});
 	

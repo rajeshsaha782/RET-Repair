@@ -243,7 +243,7 @@
 			  <% for(var i = 0; i < DashboardViewModel.Services.length; i++){ %>
 
               <% if(DashboardViewModel.Services[i].Status!="Canceled" && DashboardViewModel.Services[i].Status!="Completed"){ %>
-                      <tr onclick="window.location='sevice_provider_user_request_details';">
+                      <tr onclick="window.location='sevice_provider_user_request_details/<%= DashboardViewModel.Services[i].RequestID %>';">
                         
                         <td width="75%">
                           <div class="media">
@@ -253,7 +253,7 @@
                             <div class="media-body" >
                               
                               <h4 class="title">
-                                &nbsp <%= DashboardViewModel.userName %>
+                                &nbsp <%= DashboardViewModel.Services[i].Name %>
                                 
                               </h4>
                               <p class="summary"> &nbsp  &nbsp <%= DashboardViewModel.Services[i].ServiceType %></p>

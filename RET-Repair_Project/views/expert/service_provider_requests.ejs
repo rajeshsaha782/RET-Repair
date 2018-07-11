@@ -187,7 +187,7 @@
                       <% for(var i = 0; i < Services.length; i++){ %>
 
 
-											<tr onclick="window.location='sevice_provider_user_request_details';">
+											<tr onclick="window.location='sevice_provider_user_request_details/Services[i].RequestID';">
 												
 												<td width="75%">
 													<div class="media">
@@ -197,7 +197,7 @@
 														<div class="media-body" >
 															
 															<h4 class="title">
-																&nbsp <%= userName %>
+																&nbsp <%= Services[i].Name %>
 																
 															</h4>
 															<p class="summary"> &nbsp  &nbsp <%= Services[i].ServiceType %></p>
