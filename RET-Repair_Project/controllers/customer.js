@@ -301,6 +301,17 @@ var id=req.params.id;
 	//res.send('Hello');
 });
 
+router.get('/onGoingRequest/:id', function(req, res){
+
+var id=req.params.id;
+	requestModel.onGoingRequest(id,function(obj){
+		
+		res.redirect("../Customer_request_status/"+id);
+	});
+
+	//res.send('Hello');
+});
+
 router.get('/request_server_filter_nearest', function(req, res){
 
 	res.render('customer/request_server_filter_nearest');

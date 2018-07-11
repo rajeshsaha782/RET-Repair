@@ -246,7 +246,7 @@
 		
 		<% for(var i = 0; i < DashboardViewModel.Requests.length ; i++){ %>
     <% if(DashboardViewModel.Requests[i].Status!="Canceled"){%>
-			<tr style="cursor:pointer" onclick="window.location='Customer_request_status/<%=DashboardViewModel.Requests[i].RequestID %>';">
+			<tr style="cursor:pointer" class="" onclick="window.location='Customer_request_status/<%=DashboardViewModel.Requests[i].RequestID %>';">
 				
 				<td width="75%">
 					<div class="media">

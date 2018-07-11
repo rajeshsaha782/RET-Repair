@@ -222,6 +222,13 @@ td {text-align:center}
 						<i><%=object.PaymentDescription %></i>
 					</td>
 				</tr>
+        <tr class="p">
+          <td colspan="2" >
+          <br/>
+            <b>Total Cost</b><br/><br/>
+            <i><%=object.Payment %></i>
+          </td>
+        </tr>
 				<tr class="r">
 					<td colspan="2" >
 					<br/>
@@ -316,7 +323,6 @@ td {text-align:center}
 
 <script>
 $("tr.r").hide();
-$("tr.p").hide();
 $("input.q").hide();
 
 
@@ -345,6 +351,7 @@ if(document.getElementById("ConfirmButton").value=="On Going")
 {
 	$('#ConfirmButton').toggleClass('btn-outline-secondary btn-outline-warning');
 	$("#ConfirmButton1").addClass('hidden');
+    $("#cancelButton").addClass('hidden');
 }
 
 if(PaymentDescription!=NULL)
@@ -363,13 +370,7 @@ function change()
 
 function change2()
 {
-    if(document.getElementById("ConfirmButton").value=="Confirmed")
-	{
-		document.getElementById("ConfirmButton").value="On Going"; 
-		$('#ConfirmButton').toggleClass('btn-outline-primary btn-outline-secondary');
-		$("#ConfirmButton1").addClass('hidden');
-		
-	}
+    window.location = '../onGoingRequest/<%=object.RequestID %>';
 }
 
 function change3()

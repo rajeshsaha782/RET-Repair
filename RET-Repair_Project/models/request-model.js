@@ -165,7 +165,7 @@ module.exports =
 		})
 	},
 	
-	ongoingRequest: function(id, callback){
+	onGoingRequest: function(id, callback){
 		var sql = "UPDATE requests SET Status = 'On Going' WHERE RequestID = ?";
 		db.executeQuery(sql, [id], function(result){
 			callback(result);
