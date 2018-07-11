@@ -108,6 +108,8 @@
                   <th>Expart</th>
                   <th>Customer</th>
                   <th>Date</th>
+                  <th>ProblemDescription</th>
+                  <th>Payment</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -116,10 +118,13 @@
 
                 <% for(var i = 0; i < Services.length; i++){ %>
                 <tr>
-                  <td><%= Services[i].ServiceTypw %></td>
+                  <td><%= Services[i].ServiceType %></td>
                   <td><%= Services[i].CustomerID %></td>
                    <td><%= Services[i].ExpertID %></td>
                   <td><%= Services[i].RequestingDate %></td>
+                  <td><%= Services[i].ProblemDescription %></td>
+                  <td><%= Services[i].Payment %></td>
+
                   <td>
 
                      <% if(Services[i].Status=="Pending") { %>
