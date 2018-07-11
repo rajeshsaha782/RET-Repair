@@ -240,8 +240,13 @@ router.post('/request_details', function(req, res){
 	var description= req.body.description;
 	req.session.Address=thana+","+dis;
 	req.session.ProblemDescription=description;
-	
-	res.render('customer/request_server_filter_none');
+
+	userModel.getAllExperts(function(obj){
+		
+		console.log(obj);
+		
+		res.render('customer/request_server_filter_none',{experts:obj});
+	});
 	//res.send('Hello');
 });
 
@@ -264,12 +269,13 @@ router.get('/request_server_filter_nearest', function(req, res){
 	//res.send('Hello');
 });
 
-router.get('/request_server_filter_none', function(req, res){
+router.post('/request_server_filter_none', function(req, res){
 
 	userModel.getAllExperts(function(obj){
 		
 		console.log(obj);
-		
+		console.log(obj[0].Rating);
+
 		res.render('customer/request_server_filter_none',{experts:obj});
 	});
 	//res.send('Hello');

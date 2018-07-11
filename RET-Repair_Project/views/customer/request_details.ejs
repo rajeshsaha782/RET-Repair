@@ -182,7 +182,24 @@
 		  <br/>
 		  <div class="card bg-light">
 			  <div class="card-body text-center">
+          <% if(type=="Television Servicing"){%>
 				<p class="card-text">Selected Service Type: <img src="../../images/tv.png" style="width:5%" alt="Avatar" class="image"> <b><%=type%></b></p>
+        <% } %>
+        <% if(type=="AC Servicing"){%>
+        <p class="card-text">Selected Service Type: <img src="../../images/ac.png" style="width:5%" alt="Avatar" class="image"> <b><%=type%></b></p>
+        <% } %>
+        <% if(type=="Refrigerator Servicing"){%>
+        <p class="card-text">Selected Service Type: <img src="../../images/refrigerator.png" style="width:5%" alt="Avatar" class="image"> <b><%=type%></b></p>
+        <% } %>
+        <% if(type=="Computer Servicing"){%>
+        <p class="card-text">Selected Service Type: <img src="../../images/desktop.png" style="width:5%" alt="Avatar" class="image"> <b><%=type%></b></p>
+        <% } %>
+        <% if(type=="Phone Servicing"){%>
+        <p class="card-text">Selected Service Type: <img src="../../images/mobile.png" style="width:5%" alt="Avatar" class="image"> <b><%=type%></b></p>
+        <% } %>
+        <% if(type=="Others"){%>
+        <p class="card-text">Selected Service Type: <img src="../../images/others.png" style="width:5%" alt="Avatar" class="image"> <b><%=type%></b></p>
+        <% } %>
 			  </div>
 			</div>
 		  <br/>
