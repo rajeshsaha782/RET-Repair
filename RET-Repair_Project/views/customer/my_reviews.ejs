@@ -175,18 +175,13 @@
       <!-- Icon Cards-->
       <div class="row">
 	  <table class="table table-primary table-striped">
+      <% for(var i = 0; i < reviews.length; i++){ %>
 							<tr style="cursor:pointer" onclick="window.location='request_server_details';">
-								<td width="10%"><img src="images/user_pic.png" style="width:100%" class="rounded-circle"> <b>John</b></td>
-								<td class="text-justify">Good Service</td>
+								<td width="10%"><img src="../images/user_pic.png" style="width:50%" class="rounded-circle"> <b><%=reviews[i].ExpertID%></b></td>
+								<td class="text-justify"><%=reviews[i].ReviewDescription%></td>
 							</tr>
-							<tr style="cursor:pointer" onclick="window.location='request_server_details';" >
-								<td width="10%"><img src="images/user_pic.png" style="width:100%" class="rounded-circle"> <b>John</b></td>
-								<td class="text-justify">Good Service</td>
-							</tr>
-							<tr  style="cursor:pointer" onclick="window.location='request_server_details';">
-								<td width="10%"><img src="images/user_pic.png" style="width:100%" class="rounded-circle"> <b>John</b></td>
-								<td class="text-justify">Good Service</td>
-							</tr>
+              <%}%>
+							
 						</table>
 		</div>
         

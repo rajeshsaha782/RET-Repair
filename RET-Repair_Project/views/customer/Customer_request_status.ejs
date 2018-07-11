@@ -242,11 +242,12 @@ td {text-align:center}
 						</select>
 					</td>
 				</tr>
+        <form method="post" action="../review/<%=object.ExpertID %>" >
 				<tr class="r">
 					<td colspan="2" >
 					<br/>
 						<b>Review</b><br/><br/>
-						<textarea style="width:50%"></textarea>
+						<textarea name="review" style="width:50%"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -254,6 +255,8 @@ td {text-align:center}
 					<br/>
 					<br/>
 						<input type="button" class="btn btn-primary" data-toggle="modal" data-target="" value="Accept" onclick="change2()" id="ConfirmButton1"/>
+            <input type="Submit" class="btn btn-primary" data-toggle="modal" data-target="" value="Give Review"  id="ConfirmButton2"/>
+
 						<script>
 						if(document.getElementById("ConfirmButton").value=="Pending")
 						{
@@ -264,6 +267,7 @@ td {text-align:center}
 						<button type="submit" class="btn btn-danger" id="cancelButton" onclick="change3()" data-toggle="modal" data-target="">Cancel</button>
 					</td>
 				</tr>
+      </form>
 				
 				
 			
@@ -324,6 +328,15 @@ td {text-align:center}
 <script>
 $("tr.r").hide();
 $("input.q").hide();
+$("#ConfirmButton2").addClass('hidden');
+
+// if(<%=object.PaymentDescription %>="")
+// {
+//     $("#ConfirmButton1").addClass('hidden');
+//     alert("2dsfsd")
+// }
+
+
 
 
 if(document.getElementById("ConfirmButton").value=="Pending")
@@ -335,8 +348,9 @@ if(document.getElementById("ConfirmButton").value=="Pending")
 if(document.getElementById("ConfirmButton").value=="Completed")
 {
 	$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-success');
-	$("#ConfirmButton1").addClass('hidden');
 	$("tr.r").show();
+  $("#ConfirmButton1").addClass('hidden');
+  $("#ConfirmButton2").removeClass('hidden');
 	document.getElementById("ConfirmButton1").value="Give Review";
 	$("#cancelButton").addClass('hidden');
 	
@@ -354,10 +368,6 @@ if(document.getElementById("ConfirmButton").value=="OnGoing")
     $("#cancelButton").addClass('hidden');
 }
 
-if(PaymentDescription!=NULL)
-{
-	$("tr.p").show();
-}
 
 </script>
 

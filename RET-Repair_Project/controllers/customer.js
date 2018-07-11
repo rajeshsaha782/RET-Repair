@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var userModel = require.main.require('./models/user-model');
 var requestModel = require.main.require('./models/request-model');
+var reviewModel = require.main.require('./models/review-model');
 
 router.get('/Dashboard_user', function(req, res){
 
@@ -182,7 +183,15 @@ router.get('/messages_filter_unseen', function(req, res){
 
 router.get('/my_reviews', function(req, res){
 
-	res.render('customer/my_reviews');
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			reviewModel.getByCustomerID(result.ID,function(result1)
+			{
+					console.log(result1[0]);
+					res.render('customer/my_reviews',{reviews:result1});
+			});
+	});
 	//res.send('Hello');
 });
 
@@ -345,6 +354,23 @@ router.get('/Service_received/:id/:code', function(req, res){
 		console.log(code);
 		
 		res.render('customer/Service_received',{experts:obj,code,userId:id});
+	});
+	//res.send('Hello');
+});
+
+router.post('/review/:id', function(req, res){
+
+	var exid=req.params.id;
+	var desc=req.body.review;
+	var userEmail=req.session.username;
+	userModel.getByEmail(userEmail,function(result)
+	{
+			reviewModel.insertReview(result.ID,exid,desc,function(result)
+			{
+					
+
+					res.redirect('../Dashboard_user');
+			});
 	});
 	//res.send('Hello');
 });
