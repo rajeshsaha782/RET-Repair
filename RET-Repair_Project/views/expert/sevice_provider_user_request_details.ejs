@@ -257,6 +257,20 @@ td {text-align:center}
 						<i><%=CustomerRequestInfo[0].ProblemDescription%></i>
 					</td>
 				</tr>
+        <tr class="p">
+          <td colspan="2" >
+          <br/>
+            <b>Payment Description</b><br/><br/>
+            <i><%=CustomerRequestInfo[0].PaymentDescription %></i>
+          </td>
+        </tr>
+        <tr class="p">
+          <td colspan="2" >
+          <br/>
+            <b>Total Cost</b><br/><br/>
+            <i><%=CustomerRequestInfo[0].Payment %></i>
+          </td>
+        </tr>
 				<tr>
 					<td colspan="2">
 					<br/>
@@ -429,11 +443,18 @@ td {text-align:center}
     if(document.getElementById("ConfirmButton").value=="OnGoing")
     {
       document.getElementById("ConfirmButton1").value="Complete";
-      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-success');
+      $('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-secondary');
+      $('#ConfirmButton1').toggleClass('btn-primary btn-success');
       
     }
 
     if(document.getElementById("ConfirmButton").value=="Canceled")
+    {
+      $("#ConfirmButton1").addClass('hidden');
+    $("#cancelButton").addClass('hidden');
+      
+    }
+    if(document.getElementById("ConfirmButton").value=="Completed")
     {
       $("#ConfirmButton1").addClass('hidden');
     $("#cancelButton").addClass('hidden');
@@ -451,6 +472,13 @@ function change2()
   		window.location='../confirmRequest/<%=CustomerRequestInfo[0].RequestID%>';
   		
   	}
+
+    if(document.getElementById("ConfirmButton").value=="OnGoing")
+    {
+      window.location='../completeRequest/<%=CustomerRequestInfo[0].RequestID%>';
+      
+    }
+
 	else
 	{
 		document.getElementById("ConfirmButton1").setAttribute("data-target", "#billModal");
