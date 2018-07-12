@@ -196,6 +196,16 @@ router.get('/completeRequest/:id', function(req, res){
 	//res.send('Hello');
 });
 
+router.get('/cancelRequest/:id', function(req, res){
+
+	var id=req.params.id;
+	requestModel.cancelRequest(id,function(obj){
+		
+		res.redirect("../sevice_provider_user_request_details/"+id);
+	});
+	//res.send('Hello');
+});
+
 router.post('/billingProcess/:id', function(req, res){
 
 	var id=req.params.id;

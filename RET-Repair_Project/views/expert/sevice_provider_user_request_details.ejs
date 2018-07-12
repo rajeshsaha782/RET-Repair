@@ -489,10 +489,7 @@ function change3()
 {
     if(document.getElementById("ConfirmButton").value!="Canceled")
 	{
-		document.getElementById("ConfirmButton").value="Canceled"; 
-		$('#ConfirmButton').toggleClass('btn-outline-warning btn-outline-danger');cancelButton
-		$("#ConfirmButton1").addClass('hidden');
-		$("#cancelButton").addClass('hidden');
+		window.location='../cancelRequest/<%=CustomerRequestInfo[0].RequestID%>';
 	}
 }
 
