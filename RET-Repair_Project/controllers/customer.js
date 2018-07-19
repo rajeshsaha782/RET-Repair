@@ -252,7 +252,7 @@ router.post('/request_details', function(req, res){
 
 	userModel.getAllExperts(function(obj){
 		
-		console.log(obj);
+		//console.log(obj);
 		
 		res.render('customer/request_server_filter_none',{experts:obj});
 	});
